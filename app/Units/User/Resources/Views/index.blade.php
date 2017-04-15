@@ -64,6 +64,10 @@
         function save(match) {
             var vone = $("#vone"+match).val();
             var vtwo = $("#vtwo"+match).val();
+            if (vone === '' || vtwo === '') {
+                alert("Preencha os campos");
+                return false
+            }
             var result = vone+'x'+vtwo;
             $.get("{!! route('game.store') !!}",
             {
