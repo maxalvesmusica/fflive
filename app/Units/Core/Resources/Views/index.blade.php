@@ -40,6 +40,9 @@
                 <a href="{{ route('social.redirect') }}" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook icon-face"></i>
                     <b>ENTRAR COM O FACEBOOK</b></a>
             </div>
+            <div class="col-md-12">
+                <a href="http://www.futebolfacil.com" target="blank" class="btn btn-block btn-primary" style="max-width: 340px; margin: auto;"><b>APOSTE AQUI</b></a>
+            </div>
         </div>
 
     </div>
