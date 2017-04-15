@@ -11,12 +11,12 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     public function home()
     {
         if (\Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect()->route('user.index');
         }
         return view('auth::login');
     }
@@ -26,7 +26,7 @@ class LoginController extends Controller
         $input = $request->all();
 
         if (\Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            return redirect()->route('dashboard');
+            return redirect()->route('match.index');
         }
 
         return redirect()->route('index');

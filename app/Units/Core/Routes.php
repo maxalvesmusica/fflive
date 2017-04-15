@@ -24,6 +24,7 @@ class Routes extends RouteFile
     protected function accessRoutes()
     {
         $this->router->get('/', 'CoreController@index')->name('index');
+        $this->router->get('admin', 'CoreController@admin')->name('index.admin');
         $this->router->get('index', 'CoreController@dashboard')->name('dashboard');
     }
 }
