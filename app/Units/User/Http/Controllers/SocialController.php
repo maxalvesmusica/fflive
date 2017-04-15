@@ -29,7 +29,7 @@ class SocialController
     public function getOrCreate($user)
     {
         $input['name'] = $user->getName();
-        $input['email'] = $user->getEmail();
+        $input['email'] = $user->getEmail() ?: 'sem email de cadastro';
         $input['avatar'] = $user->getAvatar();
 
         $get = $this->userRepository->findWhere(['email' => $user->getEmail()])->first();
