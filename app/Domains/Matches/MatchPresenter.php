@@ -16,6 +16,6 @@ class MatchPresenter extends Presenter
 
     public function date()
     {
-        return date('d/m/Y H:i:s', strtotime($this->entity->live));
+        return date('d/m/Y H:i:s', strtotime($this->entity->datetime));
     }
 }
