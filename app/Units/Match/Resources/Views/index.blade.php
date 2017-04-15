@@ -47,7 +47,7 @@
                                     </div>
                                 <td>
                                     <a href="{{ route('match.details', $match->id) }}" class="btn btn-success btn-sm">PALPITES</a>
-                                    <a href="{{ route('match.details', $match->id) }}" class="btn btn-info btn-sm">{{$match->present()->button}}</a>
+                                    <a href="{{ route('match.block', $match->id) }}" class="btn btn-info btn-sm">{{$match->present()->button}}</a>
                                 </td>
                             </tr>
                             @endforeach
