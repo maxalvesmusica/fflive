@@ -54,6 +54,9 @@
         </div>
     </div>
     @endforeach
+    <div class="col-md-12">
+        <a href="http://www.futebolfacil.com" target="blank" class="btn btn-block btn-primary" style="max-width: 340px; margin: auto;"><b>APOSTE AQUI</b></a>
+    </div>
 @stop
 
 @section('scripts')
