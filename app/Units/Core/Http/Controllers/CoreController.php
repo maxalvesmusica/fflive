@@ -24,7 +24,6 @@ class CoreController
 
     public function dashboard()
     {
-        dd(config('services'));
      $route = \Auth::user()->profile == 'user' ? 'user.index' : 'match.index';
      return redirect()->route($route);
     }
