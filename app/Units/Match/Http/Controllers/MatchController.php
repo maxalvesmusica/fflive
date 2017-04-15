@@ -35,7 +35,6 @@ class MatchController extends Controller
     {
         $input = $request->except(['_token']);
         $input['datetime'] = $input['date'].' '.$input['time'];
-        $input['slug'] = str_slug($input['tone'].' vs '.$input['ttwo']);
         $input['score'] = '-x-';
         $this->matchRepository->create($input);
 

@@ -12,7 +12,7 @@ class Match extends Model
     protected $presenter = MatchPresenter::class;
 
     protected $fillable = [
-        'tone', 'ttwo', 'championship', 'slug', 'link', 'score', 'live', 'datetime'
+        'tone', 'ttwo', 'championship', 'link', 'score', 'live', 'datetime'
     ];
 
 }

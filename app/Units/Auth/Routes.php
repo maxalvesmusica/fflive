@@ -25,7 +25,8 @@ class Routes extends RouteFile
 
     protected function authenticationRoutes()
     {
-        $this->router->get('admin/login', 'LoginController@home')->name('login');
+        $this->router->get('admin/login', 'LoginController@home')->name('loginadmin');
+        $this->router->get('login', 'LoginController@home')->name('login');
         $this->router->post('login', 'LoginController@login')->name('loginmesmo');
         $this->router->get('logout', 'LoginController@logout')->name('logout');
     }
