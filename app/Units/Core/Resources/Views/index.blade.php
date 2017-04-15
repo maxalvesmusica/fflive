@@ -7,7 +7,9 @@
     <meta http-equiv="Content-Language" content="pt-br" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Futebol Fácil</title>
+    <title>Futebol Facil | Apostas Esportivas Online</title>
+    <meta name="description" content="O melhor site de apostas esportivas online do Brasil. Site desenvolvido e administrado por Brasileiros.">
+    <meta name="keywords" content="apostas esportivas,apostas online,futebol facil,cashout">
     <meta property="og:url"           content="http://www.futebolfacil.com.br" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Futebol Fácil Ao Vivo" />
@@ -18,6 +20,15 @@
     <link rel="stylesheet" href="{{ url('geral.css') }}">
     <link rel="stylesheet" href="{{ url('pluginfa/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ url('pluginfa/css/font-awesome.min.css') }}">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-75043808-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 </head>
 
 <body>
