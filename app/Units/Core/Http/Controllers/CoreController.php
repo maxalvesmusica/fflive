@@ -32,6 +32,8 @@ class CoreController
      if (\Auth::check() && \Auth::user()->profile == 'admin') {
          return redirect()->route('match.index');
      }
+        \Auth::logout();
+        session()->flush();
         return view('auth::login');
     }
 }
