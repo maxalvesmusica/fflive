@@ -24,7 +24,7 @@ class Routes extends RouteFile
     protected function accessRoutes()
     {
         $this->router->group(['prefix' => 'palpites', 'middleware' => 'auth'], function () {
-            $this->router->get('{match}/salvar', 'GameController@store')->name('game.store');
+            $this->router->get('salvar', 'GameController@store')->name('game.store');
         });
     }
 }

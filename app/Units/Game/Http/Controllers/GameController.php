@@ -20,7 +20,6 @@ class GameController extends Controller
     {
         $input = $request->except(['_token']);
         $input['user_id'] = \Auth::user()->id;
-        $input['match_id'] = $match;
         $input['result'] = '';
 
         $game = $this->gameRepository->create($input);

@@ -46,8 +46,9 @@
             var vone = $("#vone"+match).val();
             var vtwo = $("#vtwo"+match).val();
             var result = vone+'x'+vtwo;
-            $.get("{!! route('game.store', $match->id) !!}",
+            $.get("{!! route('game.store') !!}",
             {
+                match_id:match,
                 score:result
             }).done(function() {
             });
