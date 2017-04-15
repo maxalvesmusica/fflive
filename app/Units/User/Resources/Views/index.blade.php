@@ -18,7 +18,7 @@
                         <div class="col-md-6 m-t-10">
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <?php $r = $match->score ? explode('x', $bet->match) : null; ?>
+                                    <?php $r = $match->score ? explode('x', $match->score) : null; ?>
                                     <input type="text" name="vone" id="vone{{$match->id}}" class="form-control form-palpite"
                                     <?php if ($r) { ?>
                                         value="{{$r[0]}}" disabled
