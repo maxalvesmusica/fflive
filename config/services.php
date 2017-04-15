@@ -37,7 +37,7 @@ return [
     'facebook' => [
         'client_id' => '1789909471319616',
         'client_secret' => '3abf78d4a89f07498ce54613ee26395a',
-        'redirect' => 'http://futebolfacil.com.br/social/callback',
+        'redirect' => 'http://www.futebolfacil.com.br/social/callback',
     ],
 
 ];

@@ -20,7 +20,7 @@ class SocialController
 
     public function callback()
     {
-        $providerUser = \Socialite::driver('facebook')->user();
+        $providerUser = \Socialite::driver('facebook')->stateless()->user();
         $this->getOrCreate($providerUser);
 
         return redirect()->route('dashboard');
