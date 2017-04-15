@@ -29,6 +29,9 @@
                                      data-layout="button_count">
                                 </div>
                             </div>
+                            <div class="col-md-12 m-t-10">
+                                <p>*Clique no botão "Compartilhar" para finalizar.</p>
+                            </div>
                         </div>
 
                     </div>

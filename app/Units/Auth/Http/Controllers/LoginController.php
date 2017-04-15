@@ -18,7 +18,7 @@ class LoginController extends Controller
         if (\Auth::check()) {
             return redirect()->route('dashboard');
         }
-        return redirect()->route('index');
+        return view('auth::login');
     }
 
     public function login(Request $request)
@@ -26,10 +26,6 @@ class LoginController extends Controller
         $input = $request->all();
 
         if (\Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            return redirect()->route('dashboard');
-        }
-
-        if (\Auth::attempt(['aname' => $input['email'], 'password' => $input['password']])) {
             return redirect()->route('dashboard');
         }
 

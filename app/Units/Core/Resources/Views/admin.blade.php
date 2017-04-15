@@ -28,8 +28,11 @@
         <!-- OpÃ§Ãµes do Menu -->
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ route('match.index') }}">JOGOS</a></li>
-                <li><a href="{{ route('user.list') }}">CADASTROS</a></li>
+                @if (\Auth::check())
+                    <li><a href="{{ route('match.index') }}">JOGOS</a></li>
+                    <li><a href="{{ route('user.list') }}">CADASTROS</a></li>
+                    <li><a href="{{ route('logout') }}">SAIR</a></li>
+                @endif
             </ul>
         </div>
     </div>
