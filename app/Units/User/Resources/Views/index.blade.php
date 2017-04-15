@@ -20,7 +20,7 @@
                                 <div class="input-group">
                                     @inject('game', 'App\Domains\Games\Game')
                                     <?php
-                                        $score = $game->where('match_id', $match->id)->first();
+                                        $score = $game->where('match_id', $match->id)->where('user_id', \Auth::user()->id)->first();
                                     $r = $score ? explode('x', $score->score) : null;
                                     ?>
                                     <input type="text" name="vone" id="vone{{$match->id}}" class="form-control form-palpite"
@@ -67,6 +67,8 @@
                 match_id:match,
                 score:result
             }).done(function() {
+                $("#vone"+match).prop('disabled', true);
+                $("#vtwo"+match).prop('disabled', true);
             });
         }
     </script>
