@@ -26,4 +26,10 @@ class UserController extends Controller
 
         return view('user::index', compact('user', 'matches'));
     }
+
+    public function show()
+    {
+        $users = $this->userRepository->all();
+        return view('user::list', compact('users'));
+    }
 }

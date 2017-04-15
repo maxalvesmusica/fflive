@@ -37,8 +37,8 @@ class SocialController
             \Auth::loginUsingId($get->id);
             return true;
         }
-        $this->userRepository->create($input);
-
+        $get = $this->userRepository->create($input);
+        \Auth::loginUsingId($get->id);
         return true;
     }
 }
