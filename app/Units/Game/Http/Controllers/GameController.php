@@ -16,7 +16,7 @@ class GameController extends Controller
         $this->gameRepository = $gr;
     }
 
-    public function store($match, Request $request)
+    public function store(Request $request)
     {
         $input = $request->except(['_token']);
         $input['user_id'] = \Auth::user()->id;

@@ -11,16 +11,25 @@
                         <div class="col-md-6 m-t-10">
                             <span class="badge bg-yellow"> Transmissão Ao Vivo</span>
                             <p class="title" href="#"><strong>{{ $match->tone }}</strong> <small>vs</small> <strong>{{ $match->ttwo }}</strong></p>
-                            <p>{{ $match->championship }}</p>
+                            <p>Campeonato: {{ $match->championship }}</p>
                             <p> <small>{{ $match->present()->date }}</small></p>
                         </div>
 
                         <div class="col-md-6 m-t-10">
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" name="vone" id="vone{{$match->id}}" class="form-control form-palpite">
+                                    <?php $r = $match->score ? explode('x', $bet->match) : null; ?>
+                                    <input type="text" name="vone" id="vone{{$match->id}}" class="form-control form-palpite"
+                                    <?php if ($r) { ?>
+                                        value="{{$r[0]}}" disabled
+                                    <?php }?>
+                                    >
                                     <div class="input-group-addon">X</div>
-                                    <input type="text" name="vtwo" id="vtwo{{$match->id}}" onblur="save({{$match->id}})" class="form-control form-palpite">
+                                    <input type="text" name="vtwo" id="vtwo{{$match->id}}" onblur="save({{$match->id}})" class="form-control form-palpite"
+                                           <?php if ($r) { ?>
+                                           value="{{$r[1]}}" disabled
+                                    <?php }?>
+                                    >
                             </div>
                             <div class="col-md-6">
                                 <div class="fb-share-button"

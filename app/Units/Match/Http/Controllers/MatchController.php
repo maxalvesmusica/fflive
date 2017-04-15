@@ -21,7 +21,7 @@ class MatchController extends Controller
 
     public function index()
     {
-        $matches = $this->matchRepository->findWhere([['datetime', 'like', date('Y-m-d').'%']]);
+        $matches = $this->matchRepository->orderBy('id', 'desc')->findWhere([['datetime', 'like', date('Y-m-d').'%']]);
 
         return view('match::index', compact('matches'));
     }
