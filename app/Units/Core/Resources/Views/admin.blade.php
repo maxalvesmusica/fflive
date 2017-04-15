@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="{{ url('favicon.ico') }}" />
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta http-equiv="Content-Language" content="pt-br" />
