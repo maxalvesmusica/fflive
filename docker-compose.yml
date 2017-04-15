@@ -1,0 +1,40 @@
+# v2 sintax
+version: '2'
+
+# Named volumes
+volumes:
+  # Redis Data
+  fdc-redis-data:
+    driver: local
+
+services:
+  # Redis
+  cache:
+    image: ambientum/redis:3.2
+    container_name: fdc-redis
+    command: --appendonly yes
+    volumes:
+      - fdc-redis-data:/data
+    ports:
+      - "6379:6379"
+
+  # PHP (with Nginx)
+  app:
+    image: ambientum/php:7.1-nginx
+    container_name: fdc-php
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "80:8080"
+    links:
+      - cache
+
+# Laravel Queues
+  queue:
+    image: ambientum/php:7.1
+    container_name: fdc-queue
+    command: php artisan queue:listen
+    volumes:
+      - .:/var/www/app
+    links:
+      - cache
