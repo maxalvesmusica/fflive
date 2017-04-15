@@ -41,6 +41,22 @@ class MatchController extends Controller
         return redirect()->route('match.index');
     }
 
+    public function edita($match)
+    {
+        $match = $this->matchRepository->find($match);
+
+        return view('match::update', compact('match'));
+    }
+
+    public function update($match, Request $request)
+    {
+        $input = $request->except(['_token']);
+
+        $this->matchRepository->update($input, $match);
+
+        return redirect()->route('match.index');
+    }
+
     public function show($slug)
     {
         $user = \Auth::user();

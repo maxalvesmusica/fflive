@@ -24,7 +24,7 @@
                             <thead>
                             <tr>
                                 <th style="width: 1%">#</th>
-                                <th style="width: 55%">Jogo</th>
+                                <th style="width: 40%">Jogo</th>
                                 <th style="width: 25%">Resultado</th>
                                 <th>#Opções</th>
                             </tr>
@@ -46,6 +46,7 @@
                                         <a href="#" class="input-group-addon" onclick="save({{$match->id}});return false;">Salvar</a>
                                     </div>
                                 <td>
+                                    <a href="{{ route('match.edita', $match->id) }}" class="btn btn-success btn-sm">EDITAR</a>
                                     <a href="{{ route('match.details', $match->id) }}" class="btn btn-success btn-sm">PALPITES</a>
                                     <a href="{{ route('match.block', $match->id) }}" class="btn btn-info btn-sm">{{$match->present()->button}}</a>
                                 </td>

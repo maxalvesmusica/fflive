@@ -26,6 +26,8 @@ class Routes extends RouteFile
         $this->router->group(['prefix' => 'admin/partidas', 'middleware' => 'auth'], function () {
             $this->router->get('index', 'MatchController@index')->name('match.index');
             $this->router->get('nova', 'MatchController@create')->name('match.create');
+            $this->router->get('{match}/atualizar', 'MatchController@edita')->name('match.edita');
+            $this->router->post('{match}/atualizar', 'MatchController@update')->name('match.update');
             $this->router->get('resultado', 'MatchController@score')->name('match.score');
             $this->router->post('nova', 'MatchController@store')->name('match.store');
             $this->router->get('{match}/block', 'MatchController@block')->name('match.block');
