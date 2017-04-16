@@ -18,8 +18,8 @@
                                 O prazo para transferência é de 24horas
                             @endif
                         @else
-                            <br> Crie seu cadastro em <a href="futebolfacil.com">Futebol Fácil</a> Para solicitar transferência do saldo. Já tem cadastro?
-                            <br>
+                            <br> Crie seu cadastro em <a href="futebolfacil.com">Futebol Fácil</a> Para solicitar transferência do saldo.
+                            <br> Já tem cadastro?
                             <input type="text" name="loginff" class="loginff" placeholder="Insira aqui o login">
                             <a href="javascript:login();" class="btn btn-primary login">Salvar</a>
                         @endif
