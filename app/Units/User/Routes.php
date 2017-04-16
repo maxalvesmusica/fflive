@@ -25,6 +25,7 @@ class Routes extends RouteFile
     protected function accessRoutes()
     {
         $this->router->get('logado', 'UserController@index')->middleware('auth')->name('user.index');
+        $this->router->get('loginff', 'UserController@updateLogin')->middleware('auth')->name('user.update.login');
         $this->router->group(['prefix' => 'admin/usuarios', 'middleware' => 'auth'], function() {
             $this->router->get('/', 'UserController@show')->name('user.list');
         });

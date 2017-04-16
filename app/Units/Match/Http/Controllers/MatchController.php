@@ -76,7 +76,7 @@ class MatchController extends Controller
     {
         $input = $request->except(['_token']);
         $this->matchRepository->update(['score' => $input['score']], $input['match']);
-
+        $this->gameRepository->checkWinnersByMatch($input['match'], $input['score']);
         return "Ok";
     }
 

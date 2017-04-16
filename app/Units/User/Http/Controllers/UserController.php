@@ -32,4 +32,11 @@ class UserController extends Controller
         $users = $this->userRepository->all();
         return view('user::list', compact('users'));
     }
+
+    public function updateLogin(Request $request)
+    {
+        $this->userRepository->update(['loginff' => $request->get('loginff')], \Auth::user()->id);
+
+        return "OK";
+    }
 }

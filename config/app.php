@@ -186,6 +186,7 @@ return [
         App\Domains\Users\Providers\DomainServiceProvider::class,
         App\Domains\Matches\Providers\DomainServiceProvider::class,
         App\Domains\Games\Providers\DomainServiceProvider::class,
+        App\Domains\Transfers\Providers\DomainServiceProvider::class,
         /**
          * Units
          */
@@ -194,6 +195,7 @@ return [
         App\Units\User\Providers\UnitServiceProvider::class,
         App\Units\Match\Providers\UnitServiceProvider::class,
         App\Units\Game\Providers\UnitServiceProvider::class,
+        App\Units\Transfer\Providers\UnitServiceProvider::class,
 
     ],
 

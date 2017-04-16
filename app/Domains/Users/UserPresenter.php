@@ -10,15 +10,9 @@ use Illuminate\Support\Str;
  */
 class UserPresenter extends Presenter
 {
-    public function address()
+    public function balance()
     {
-        $number = ($this->entity->number) ?: '';
-        return $this->entity->street.', '.$number;
-    }
-
-    public function classActive()
-    {
-        return ($this->entity->status == 1) ? 'success' : 'danger';
+        return number_format($this->entity->balance, 2, ',','.');
     }
 
     public function action()

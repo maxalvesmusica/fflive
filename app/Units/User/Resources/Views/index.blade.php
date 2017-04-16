@@ -1,6 +1,34 @@
 @extends('core::user')
 
 @section('content')
+    <div class="row">
+        <div class="col-md-12">
+            <ol class="breadcrumb" style="overflow: hidden;">
+                <div class="col-md-12">
+                    <form class="form-inline" style="width: 100%; max-width: 270px; margin: auto;">
+                        <div class="form-group">
+                            <label>Saldo atual:</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><b>{{ $user->present()->balance }}</b></div>
+                            </div>
+                        </div>
+                        @if (\Auth::user()->loginff)
+                            @if (\Auth::user()->balance > 0)
+                                <a href="{{route('transfer.request')}}" class="btn btn-block btn-success m-t-10">Solicitar Transferência</a>
+                                O prazo para transferência é de 24horas
+                            @endif
+                        @else
+                            <br> Crie seu cadastro em <a href="futebolfacil.com">Futebol Fácil</a> Para solicitar transferência do saldo
+                            <br> Já tem cadastro?
+                            <input type="text" name="loginff" class="loginff" placeholder="Insira aqui o login">
+                            <a href="javascript:login();" class="btn btn-primary login">Salvar</a>
+                        @endif
+                    </form>
+                </div>
+
+            </ol>
+        </div>
+    </div>
     @foreach ($matches as $match)
     <div class="row">
         <div class="col-md-12">
@@ -55,7 +83,7 @@
     </div>
     @endforeach
     <div class="col-md-12">
-        <a href="http://www.futebolfacil.com" target="blank" class="btn btn-block btn-primary" style="max-width: 340px; margin: auto;"><b>APOSTE AQUI</b></a>
+        <a href="http://www.futebolfacil.com" target="blank" class="btn btn-block btn-danger" style="max-width: 340px; margin: auto;"><b>APOSTE AQUI</b></a>
     </div>
 @stop
 
@@ -76,6 +104,16 @@
             }).done(function() {
                 $("#vone"+match).prop('disabled', true);
                 $("#vtwo"+match).prop('disabled', true);
+            });
+        }
+
+        function login() {
+            var login = $(".loginff").val();
+            $.get("{!! route('user.update.login') !!}",
+            {
+                loginff:login
+            }).done(function() {
+                window.location.reload();
             });
         }
     </script>

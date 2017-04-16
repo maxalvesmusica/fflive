@@ -12,7 +12,8 @@
         "predis/predis": "^1.1",
         "laravelcollective/html": "^5.1",
         "prettus/l5-repository": "^2.6",
-        "artesaos/seotools": "^0.10.0"
+        "artesaos/seotools": "^0.10.0",
+        "doctrine/dbal": "^2.5"
     },
     "autoload": {
         "psr-4": {

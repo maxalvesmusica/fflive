@@ -43,6 +43,7 @@
                 @if (\Auth::check())
                     <li><a href="{{ route('match.index') }}">JOGOS</a></li>
                     <li><a href="{{ route('user.list') }}">CADASTROS</a></li>
+                    <li><a href="{{ route('transfer.index') }}">TRANSFERENCIAS</a></li>
                     <li><a href="{{ route('logout') }}">SAIR</a></li>
                 @endif
             </ul>
