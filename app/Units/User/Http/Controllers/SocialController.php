@@ -34,6 +34,7 @@ class SocialController
 
         $get = $this->userRepository->findWhere(['name' => $user->getName()])->first();
         if ($get != null) {
+            $this->userRepository->update(['email' => $user->getEmail()], $get->id);
             \Auth::loginUsingId($get->id);
             return true;
         }
