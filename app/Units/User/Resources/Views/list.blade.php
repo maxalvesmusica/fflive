@@ -23,12 +23,14 @@
                                 <th style="width: 20%">Usuário</th>
                                 <th>Foto de Perfil</th>
                                 <th>E-mail</th>
+                                <th>Saldo</th>
+                                <th>Cadastro</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($users as $user)
                             <tr>
-                                <td>#</td>
+                                <td>{{$user->id}}</td>
                                 <td>
                                     <a>{{$user->name}}</a>
                                 </td>
@@ -39,15 +41,15 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td>
-                                    <small>{{ $user->email }}</small>
-                                </td>
+                                <td><small>{{ $user->email }}</small></td>
+                                <td><small>R$ {{ $user->present()->balance }}</small></td>
+                                <td>{{date('d/m/Y H:i:s', strtotime($user->created_at))}}</td>
                             </tr>
                             @endforeach
                             </tbody>
                         </table>
                         <!-- end project list -->
-
+                        {{ $users->links() }}
                     </div>
                 </div>
 

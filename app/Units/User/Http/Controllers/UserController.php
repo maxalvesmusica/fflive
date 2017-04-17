@@ -29,7 +29,7 @@ class UserController extends Controller
 
     public function show()
     {
-        $users = $this->userRepository->all();
+        $users = $this->userRepository->orderBy('id', 'desc')->paginate();
         return view('user::list', compact('users'));
     }
 

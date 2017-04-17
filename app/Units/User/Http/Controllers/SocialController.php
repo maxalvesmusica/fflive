@@ -29,15 +29,16 @@ class SocialController
     public function getOrCreate($user)
     {
         $input['name'] = $user->getName();
-        $input['email'] = $user->getEmail() ?: 'sem email de cadastro';
+        $input['email'] = $user->getEmail();
         $input['avatar'] = $user->getAvatar();
 
-        $get = $this->userRepository->findWhere(['email' => $user->getEmail()])->first();
+        $get = $this->userRepository->findWhere(['name' => $user->getName()])->first();
         if ($get != null) {
             \Auth::loginUsingId($get->id);
             return true;
         }
         $get = $this->userRepository->create($input);
+        $this->userRepository->update(['email' => $user->getEmail()], $get->id);
         \Auth::loginUsingId($get->id);
         return true;
     }

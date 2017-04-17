@@ -9,13 +9,15 @@
                         <div class="form-group">
                             <label>Saldo atual:</label>
                             <div class="input-group">
-                                <div class="input-group-addon"><b>{{ $user->present()->balance }}</b></div>
+                                <div class="input-group-addon"><b>R$ {{ $user->present()->balance }}</b></div>
                             </div>
                         </div>
                         @if (\Auth::user()->loginff)
-                            @if (\Auth::user()->balance > 0)
+                            @if (\Auth::user()->balance > 20.00)
                                 <a href="{{route('transfer.request')}}" class="btn btn-block btn-success m-t-10">Solicitar Transferência</a>
                                 O prazo para transferência é de 24horas
+                            @else
+                                Saldo para transferência é de no mínimo R$20 reais
                             @endif
                         @else
                             <br> Crie seu cadastro em <a href="futebolfacil.com">Futebol Fácil</a> Para solicitar transferência do saldo.
