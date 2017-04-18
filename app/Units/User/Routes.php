@@ -34,7 +34,7 @@ class Routes extends RouteFile
     public function userRoutes()
     {
         $this->router->group(['prefix' => 'usuario', 'middleware' => 'auth'], function() {
-            $this->router->get('index', 'UserController@index')->name('user.index');
+            $this->router->get('/', 'UserController@index')->name('user.index');
             $this->router->get('partidas', 'UserController@games')->name('user.games');
             $this->router->get('bonus', 'UserController@bonus')->name('user.bonus');
         });
