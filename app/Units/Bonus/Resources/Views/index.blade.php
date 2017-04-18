@@ -12,7 +12,7 @@
                     <div class="x_title">
                         <h2 style="float: left;">Bonus</h2>
                         <div class="navbar-right m-t-10">
-                            @if ($type == 'transferidas')
+                            @if ($type === 'transferidas')
                                 <a href="{{ route('bonus.index') }}" class="btn btn-primary">VER PENDENTES</a>
                             @else
                                 <a href="{{ route('bonus.index', 'transferidas') }}" class="btn btn-primary">VER CONCLUIDAS</a>
