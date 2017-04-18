@@ -31,16 +31,16 @@ class SocialController
         $input['name'] = $user->getName();
         $input['email'] = $user->getEmail();
         $input['avatar'] = $user->getAvatar();
-        $input['profile'] = $user->getId();
+        $input['idface'] = $user->getId();
 
         $get = $this->userRepository->findWhere(['name' => $user->getName()])->first();
         if ($get != null) {
-            $this->userRepository->update(['email' => $user->getEmail(), 'profile' => $user->getId()], $get->id);
+            $this->userRepository->update(['email' => $user->getEmail(), 'idface' => $user->getId()], $get->id);
             \Auth::loginUsingId($get->id);
             return true;
         }
         $get = $this->userRepository->create($input);
-        $this->userRepository->update(['email' => $user->getEmail(), 'profile' => $user->getId()], $get->id);
+        $this->userRepository->update(['email' => $user->getEmail(), 'idface' => $user->getId()], $get->id);
         \Auth::loginUsingId($get->id);
         return true;
     }
