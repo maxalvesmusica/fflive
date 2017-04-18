@@ -27,6 +27,7 @@ class Routes extends RouteFile
     {
         $this->router->group(['prefix' => 'admin/transferencias', 'middleware' => 'auth'], function () {
             $this->router->get('{id}/{tp}/update', 'TransferController@update')->name('transfer.update');
+            $this->router->get('{type?}/{date?}', 'TransferController@index')->name('transfer.index');
         });
     }
 
@@ -39,6 +40,5 @@ class Routes extends RouteFile
 
     protected function indexRoute()
     {
-        $this->router->get('transferencias/{type?}/{date?}', 'TransferController@index')->name('transfer.index');
     }
 }

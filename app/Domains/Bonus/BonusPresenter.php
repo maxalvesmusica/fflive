@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Domains\Transfers;
+namespace App\Domains\Bonus;
 
 
 use Codecasts\Presenter\Presenter;
 
 /**
- * Class TransferPresenter.
+ * Class BonusPresenter.
  */
 
-class TransferPresenter extends Presenter
+class BonusPresenter extends Presenter
 {
-    public function balance()
-    {
-        return number_format($this->entity->balance, 2, ',','.');
-    }
-
     public function status()
     {
         return ($this->entity->done == 0) ? 'Pendente' : 'Concluída';

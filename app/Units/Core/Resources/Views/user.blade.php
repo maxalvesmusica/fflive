@@ -57,13 +57,29 @@
                             <!-- Profile Image -->
                             <div class="box box-primary">
                                 <div class="box-body box-profile">
+                                    <!-- Menu Responsivo, fixo no topo -->
+                                    <div class="navbar-default menu-usuario" role="navigation">
+                                        <div class="container">
+                                            <div class="navbar-header">
 
-                                    <img class="profile-user-img img-responsive img-circle" src="{{ $user->avatar }}" alt="User profile picture">
+                                                <!--Botao oculto para menu responsivo -->
+                                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                                                    <span style="background:#fff;" class="icon-bar"></span><span style="background:#fff;" class="icon-bar"></span> <span style="background:#fff;" class="icon-bar"></span>
+                                                </button>
+                                            </div>
 
-                                    <h3 class="profile-username text-center">{{ $user->name }}</h3>
-
-                                    <p class="text-muted text-center"><i class="fa fa-envelope"></i> {{ $user->email }}</p>
-
+                                            <!-- OpÃ§Ãµes do Menu -->
+                                            <div class="navbar-collapse collapse">
+                                                <ul class="nav navbar-nav">
+                                                    <li><a href="{{ route('user.index') }}">HOME</a></li>
+                                                    <li><a href="{{ route('user.games') }}">DEIXE SEU PALPITE</a></li>
+                                                    <li class="active"><a href="{{ route('user.bonus') }}"><b>GANHE BÔNUS!</b></a></li>
+                                                    <li><a href="{{ route('logout') }}">SAIR</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fim do Menu responsivo -->
                                     @yield('content')
 
                                 </div>

@@ -10,12 +10,12 @@
                 <div class="x_panel">
 
                     <div class="x_title">
-                        <h2 style="float: left;">Transfêrencias</h2>
+                        <h2 style="float: left;">Bonus</h2>
                         <div class="navbar-right m-t-10">
                             @if ($type == 'transferidas')
-                                <a href="{{ route('transfer.index') }}" class="btn btn-primary">VER PENDENTES</a>
+                                <a href="{{ route('bonus.index') }}" class="btn btn-primary">VER PENDENTES</a>
                             @else
-                                <a href="{{ route('transfer.index', 'transferidas') }}" class="btn btn-primary">VER CONCLUIDAS</a>
+                                <a href="{{ route('bonus.index', 'transferidas') }}" class="btn btn-primary">VER CONCLUIDAS</a>
                             @endif
                         </div>
                         <div class="clearfix"></div>
@@ -37,8 +37,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Usuário</th>
-                                <th>Login FF</th>
-                                <th>Valor</th>
+                                <th>Email/Login</th>
+                                <th>Rede</th>
                                 <th>Status</th>
                                 <th>Solicitação</th>
                                 <th>Conclusão</th>
@@ -46,21 +46,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($transfers as $transfer)
+                            @foreach ($bonus as $b)
                                 <tr>
-                                    <td>{{$transfer->id}}</td>
-                                    <td>{{$transfer->user->name}}</td>
-                                    <td>{{$transfer->user->loginff}}</td>
-                                    <td>{{$transfer->present()->balance}}</td>
-                                    <td>{{$transfer->present()->status}}</td>
-                                    <td>{{$transfer->present()->request}}</td>
-                                    <td>{{$transfer->done == 1 ? $transfer->present()->done : '' }}</td>
+                                    <td>{{$b->id}}</td>
+                                    <td>{{$b->user->name }}</td>
+                                    <td>{{($b->type == 'insta') ? $b->user->insta : $b->user->email }}</td>
+                                    <td>{{$b->type }}</td>
+                                    <td>{{$b->present()->status}}</td>
+                                    <td>{{$b->present()->request}}</td>
+                                    <td>{{$b->done == 1 ? $b->present()->done : '' }}</td>
                                     <td>
                                         <?php
-                                            $class = ($transfer->done == 0) ? 'success' : 'danger';
-                                            $txt = ($transfer->done == 0) ? 'Concluir' : 'Desfazer';
+                                        $class = ($b->done == 0) ? 'success' : 'danger';
+                                        $txt = ($b->done == 0) ? 'Concluir' : 'Desfazer';
                                         ?>
-                                        <a href="{{ route('transfer.update', [$transfer->id, $transfer->present()->tp]) }}" class="btn btn-{{$class}}">{{$txt}}</a>
+                                        <a href="{{ route('bonus.update', [$b->id, $b->user->id]) }}" class="btn btn-{{$class}}">{{$txt}}</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -82,7 +82,7 @@
         function search()
         {
             var date = $(".date").val();
-            window.location.href = "{{config('app.url')}}/admin/transferencias/{{$type}}/"+date;
+            window.location.href = "{{config('app.url')}}/admin/bonus/{{$type}}/"+date;
         }
     </script>
 @stop

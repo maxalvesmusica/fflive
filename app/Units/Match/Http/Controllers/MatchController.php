@@ -19,11 +19,12 @@ class MatchController extends Controller
         $this->gameRepository = $gr;
     }
 
-    public function index()
+    public function index($date = '')
     {
-        $matches = $this->matchRepository->orderBy('id', 'desc')->findWhere([['datetime', 'like', date('Y-m-d').'%']]);
+        $date = $date ?: date('Y-m-d');
+        $matches = $this->matchRepository->orderBy('id', 'desc')->findWhere([['datetime', 'like', "$date%"]]);
 
-        return view('match::index', compact('matches'));
+        return view('match::index', compact('matches', 'date'));
     }
 
     public function create()

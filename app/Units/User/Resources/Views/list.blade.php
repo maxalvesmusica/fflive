@@ -9,7 +9,7 @@
                 <!-- Profile Image -->
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Cadastros</h2>
+                        <h2>Cadastros | Total: {{$count}}</h2>
                         <div class="clearfix"></div>
                     </div>
 

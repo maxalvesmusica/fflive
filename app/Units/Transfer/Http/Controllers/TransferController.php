@@ -21,9 +21,10 @@ class TransferController extends Controller
 
     public function index($type = 0, $date = '')
     {
+        $date = $date ?: date('Y-m-d');
         $transfers = $this->transferRepository->getTransfers($type, $date);
         $view = (\Auth::user()->profile == 'admin') ? 'transfer::index' : 'transfer::user';
-        return view($view, compact('transfers', 'type'));
+        return view($view, compact('transfers', 'type', 'date'));
     }
 
     public function request()

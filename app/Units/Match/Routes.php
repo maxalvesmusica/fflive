@@ -24,7 +24,7 @@ class Routes extends RouteFile
     protected function accessRoutes()
     {
         $this->router->group(['prefix' => 'admin/partidas', 'middleware' => 'auth'], function () {
-            $this->router->get('index', 'MatchController@index')->name('match.index');
+            $this->router->get('index/{date?}', 'MatchController@index')->name('match.index');
             $this->router->get('nova', 'MatchController@create')->name('match.create');
             $this->router->get('{match}/atualizar', 'MatchController@edita')->name('match.edita');
             $this->router->post('{match}/atualizar', 'MatchController@update')->name('match.update');

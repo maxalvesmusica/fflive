@@ -16,7 +16,14 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-
+                    <!--pesquisa-->
+                    <div class="col-md-3 col-sm-4">
+                        <input type="date" class="form-control date" value="{{$date}}">
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button onclick="search()" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar</button>
+                    </div>
+                    <!--pesquisa-->
                     <div class="x_content">
 
                         <!-- start project list -->
@@ -65,8 +72,6 @@
     </div>
 @stop
 
-
-
 @section('scripts')
     <script type="text/javascript">
         function save(match) {
@@ -80,6 +85,12 @@
             }).done(function() {
                 alert("Resultado Salvo!");
             });
+        }
+
+        function search()
+        {
+            var date = $(".date").val();
+            window.location.href = "{{config('app.url')}}/admin/partidas/index/"+date;
         }
     </script>
 @stop

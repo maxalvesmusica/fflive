@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Domains\Transfers;
+namespace App\Domains\Bonus;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class TransferRepository extends BaseRepository
+class BonusRepository extends BaseRepository
 {
 
-    public function getTransfers($type, $date)
+    public function getBonus($type, $date)
     {
         $type = $this->translateType($type);
         $arr = [['done', '=', $type]];
@@ -36,6 +36,6 @@ class TransferRepository extends BaseRepository
 
     function model()
     {
-        return "App\\Domains\\Transfers\\Transfer";
+        return "App\\Domains\\Bonus\\Bonus";
     }
 }
