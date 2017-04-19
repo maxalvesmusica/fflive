@@ -3,6 +3,10 @@
 @section('content')
     @if (count($matches) == 0)
         Estamos sem nenhum jogo nesse momento. Volte em instantes! <br><br>
+    @else
+        <div class="alert alert-info" role="alert">
+            <p>Deixe seu Palpite e Compartilhe. Se acertar, você ganhará <b>R$ 50,00</b> em bônus.</p>
+        </div>
     @endif
     @foreach ($matches as $match)
         <div class="row">

@@ -23,7 +23,8 @@
                                 <a href="{{route('transfer.request')}}" class="btn btn-block btn-success m-t-10">Solicitar Transferência</a>
                                 O prazo para transferência é de 24horas
                             @else
-                                Saldo para transferência é de no mínimo R$20 reais
+                                <a href="javascript:;" class="btn btn-block btn-success m-t-10">Solicitar Transferência</a>
+                                Mínimo de transferência é R$ 20 reais
                             @endif
                         @else
                             <br> Crie seu cadastro em <a href="http://futebolfacil.com" target="_blank">Futebol Fácil</a> Para solicitar transferência do saldo.

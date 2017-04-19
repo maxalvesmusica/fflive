@@ -3,6 +3,7 @@
 namespace App\Units\User\Http\Controllers;
 
 use App\Domains\Matches\MatchRepository;
+use App\Domains\Bonus\BonusRepository;
 use App\Domains\Users\UserRepository;
 use App\Units\Core\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,19 +12,22 @@ class UserController extends Controller
 {
     protected $userRepository;
     protected $matchRepository;
+    protected $bonusRepository;
 
-    public function __construct(UserRepository $ur, MatchRepository $mr)
+    public function __construct(UserRepository $ur, MatchRepository $mr, BonusRepository, $br)
     {
         parent::__construct();
         $this->userRepository = $ur;
         $this->matchRepository = $mr;
+        $this->bonusRepository = $br;
     }
 
     public function index()
     {
         $user = \Auth::user();
+        $bonus = $this->bonusRepository->findWhere(['user_id' => \Auth::user()->id, 'done' => 0])->first();
         $matches = [];
-        return view('user::index', compact('user', 'matches'));
+        return view('user::index', compact('user', 'matches', 'bonus'));
     }
 
     public function games()
