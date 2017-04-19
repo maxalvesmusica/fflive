@@ -14,7 +14,7 @@ class UserController extends Controller
     protected $matchRepository;
     protected $bonusRepository;
 
-    public function __construct(UserRepository $ur, MatchRepository $mr, BonusRepository, $br)
+    public function __construct(UserRepository $ur, MatchRepository $mr, BonusRepository $br)
     {
         parent::__construct();
         $this->userRepository = $ur;
