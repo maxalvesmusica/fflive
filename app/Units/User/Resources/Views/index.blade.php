@@ -37,7 +37,7 @@
             </ol>
             @if (count($bonus) != 0)
             <div class="alert alert-info" role="alert">
-                <p>Estamos analisando seu <b>Instagram</b> para liberar seu bônus de R$ 5,00.</p>
+                <p>Estamos analisando seu <b>{{$bonuts->type}}</b> para liberar seu bônus de R$ 5,00.</p>
             </div>
             @endif
         </div>
