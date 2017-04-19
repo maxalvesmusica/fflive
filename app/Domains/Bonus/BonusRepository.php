@@ -12,7 +12,7 @@ class BonusRepository extends BaseRepository
         $type = $this->translateType($type);
         $arr = [];
         if ($type == 1) {
-            array_push($arr, ['done', '=', $type])/
+            array_push($arr, ['done', '=', $type]);
         }
         if ($date) {
             array_push($arr, ['created_at', 'like', "$date%"]);
