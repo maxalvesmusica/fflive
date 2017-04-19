@@ -10,7 +10,10 @@ class BonusRepository extends BaseRepository
     public function getBonus($type, $date)
     {
         $type = $this->translateType($type);
-        $arr = [['done', '=', $type]];
+        $arr = [];
+        if ($type == 1) {
+            array_push($arr, ['done', '=', $type])/
+        }
         if ($date) {
             array_push($arr, ['created_at', 'like', "$date%"]);
         }
