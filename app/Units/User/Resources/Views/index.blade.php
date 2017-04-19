@@ -33,14 +33,13 @@
                             <a href="javascript:login();" class="btn btn-primary login">Salvar</a>
                         @endif
                     </form>
-                    @if (count($bonus) != 0)
-                    <div class="alert alert-info" role="alert">
-                        <p>Estamos analisando seu <b>Instagram</b> para liberar seu bônus de R$ 5,00.</p>
-                    </div>
-                    @endif
                 </div>
-
             </ol>
+            @if (count($bonus) != 0)
+            <div class="alert alert-info" role="alert">
+                <p>Estamos analisando seu <b>Instagram</b> para liberar seu bônus de R$ 5,00.</p>
+            </div>
+            @endif
         </div>
     </div>
     <div class="col-md-12">
