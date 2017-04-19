@@ -10,14 +10,12 @@ class TransferRepository extends BaseRepository
     public function getTransfers($type, $date)
     {
         $type = $this->translateType($type);
-        $arr = [];
-        if ($type == 1) {
-            array_push($arr, ['done', '=', $type]);
-        }
+        $arr = [['done', '=', $type]];
         if ($date) {
-            array_push($arr, ['created_at', 'like', "$date%"]);
+            if ($type == 1) {
+                array_push($arr, ['created_at', 'like', "$date%"]);
+            }
         }
-
 
         $transfers = $this->with(['user'])->orderBy('id', 'desc')->findWhere($arr);
 
