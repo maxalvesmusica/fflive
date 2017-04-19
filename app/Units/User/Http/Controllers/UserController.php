@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function games()
     {
-      $matches = $this->matchRepository->findWhere([['datetime', 'like', date('Y-m-d')."%"]]);
+      $matches = $this->matchRepository->findWhere([['datetime', 'like', date('Y-m-d')."%"], 'live' => 1]);
 
       return view('user::games', compact('matches'));
     }
