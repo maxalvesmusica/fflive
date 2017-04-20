@@ -1,7 +1,7 @@
 
 <html>
 <head>
-    <link rel="icon" href="{{ url('favicon.ico') }}" />
+    <link rel="shortcut icon" href="http://www.futebolfacil.com/favicon.ico" />
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta http-equiv="Content-Language" content="pt-br" />
