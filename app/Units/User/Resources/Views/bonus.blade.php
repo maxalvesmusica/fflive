@@ -66,7 +66,7 @@
 @section('scripts')
     <script type="text/javascript">
         function request(type) {
-            $(this).prop("disabled",true);
+            $(":button").prop("disabled",true);
             $.get("{!! route('bonus.request') !!}",
             {
                 type: type,
