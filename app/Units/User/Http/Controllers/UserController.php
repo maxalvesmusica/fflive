@@ -40,7 +40,9 @@ class UserController extends Controller
     public function bonus()
     {
         $user = \Auth::user();
-        return view('user::bonus', compact('user'));
+        $matches = $this->matchRepository->findWhere([['datetime', 'like', date('Y-m-d')."%"], 'live' => 1]);
+
+        return view('user::bonus', compact('user', 'matches'));
     }
 
     public function bonusrequest(Request $request)

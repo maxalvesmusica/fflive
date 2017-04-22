@@ -37,7 +37,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Usuário</th>
-                                <th>Email/Login</th>
+                                <th>Email/Login/Jogo</th>
                                 <th>Rede</th>
                                 <th>Status</th>
                                 <th>Solicitação</th>
@@ -50,7 +50,12 @@
                                 <tr>
                                     <td>{{$b->id}}</td>
                                     <td>{{$b->user->name }}</td>
-                                    <td>{{($b->type == 'insta') ? $b->user->insta : $b->user->email }}</td>
+                                    <td>
+                                    @if ($b->type == 'transmissao')
+                                        {{$b->match->tone.' X '.$b->match->ttwo}}
+                                    @else
+                                        {{($b->type == 'insta') ? $b->user->insta : $b->user->email }}</td>
+                                    @endif
                                     <td>{{$b->type }}</td>
                                     <td>{{$b->present()->status}}</td>
                                     <td>{{$b->present()->request}}</td>

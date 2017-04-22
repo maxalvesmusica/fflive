@@ -17,7 +17,7 @@ class BonusRepository extends BaseRepository
             }
         }
 
-        $transfers = $this->with(['user'])->orderBy('id', 'desc')->findWhere($arr);
+        $transfers = $this->with(['user', 'match'])->orderBy('id', 'desc')->findWhere($arr);
 
         return $transfers;
     }

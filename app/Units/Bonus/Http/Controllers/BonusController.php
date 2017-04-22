@@ -32,6 +32,7 @@ class BonusController extends Controller
         $this->userRepository->update([$request->get('type') => $tp], \Auth::user()->id);
         $arr = [
           'user_id' => \Auth::user()->id,
+          'match_id' => $request->get('match_id'),
           'type' => $request->get('type'),
           'done' => 0
         ];
