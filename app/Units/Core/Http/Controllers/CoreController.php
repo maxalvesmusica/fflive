@@ -30,7 +30,7 @@ class CoreController
     public function admin()
     {
      if (\Auth::check() && \Auth::user()->profile == 'admin') {
-         return redirect()->route('match.index');
+         return redirect()->route('transmission.index');
      }
         \Auth::logout();
         session()->flush();

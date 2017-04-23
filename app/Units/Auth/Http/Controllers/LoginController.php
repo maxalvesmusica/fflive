@@ -26,7 +26,7 @@ class LoginController extends Controller
         $input = $request->all();
 
         if (\Auth::attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            return redirect()->route('match.index');
+            return redirect()->route('tranmission.index');
         }
 
         return redirect()->route('index');

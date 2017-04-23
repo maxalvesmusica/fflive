@@ -197,6 +197,7 @@ return [
         App\Units\Game\Providers\UnitServiceProvider::class,
         App\Units\Transfer\Providers\UnitServiceProvider::class,
         App\Units\Bonus\Providers\UnitServiceProvider::class,
+        App\Units\Transmission\Providers\UnitServiceProvider::class,
 
     ],
 
