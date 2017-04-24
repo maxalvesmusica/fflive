@@ -21,10 +21,13 @@
                                 <input type="text" name="match" class="form-control" required/>
                             </div>
                             <div class="col-md-4 m-t-10">
-                                <label>Link</label>
+                                <label>Link Transmissão</label>
                                 <textarea rows="4" cols="50" name="link" class="form-control"></textarea>
                             </div>
-
+                            <div class="col-md-4 m-t-10">
+                                <label>Link Facebook</label>
+                                <input type="text" name="facebook" class="form-control" required/>
+                            </div>
                             <div class="col-md-2 m-t-20">
                                 <button type="submit" class="btn btn-primary btn-block btn-lg">Salvar</button>
                             </div>

@@ -52,7 +52,7 @@
 
                     </div>
                 </div>
-
+                {!! $transmissions->links() !!}
             </div>
 
         </div>

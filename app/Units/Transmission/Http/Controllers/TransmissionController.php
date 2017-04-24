@@ -20,7 +20,7 @@ class TransmissionController extends Controller
     public function index($type = 0, $date = '')
     {
         $date = $date ?: date('Y-m-d');
-        $transmissions = $this->transmissionRepository->all();
+        $transmissions = $this->transmissionRepository->orderBy('id', 'desc')->paginate();
         return view('transmission::index', compact('transmissions','date'));
     }
 
@@ -31,7 +31,7 @@ class TransmissionController extends Controller
 
     public function user()
     {
-        $transmissions = $this->transmissionRepository->all();
+        $transmissions = $this->transmissionRepository->findWhere(['live' => 1]);
         return view('transmission::user', compact('transmissions'));
     }
 

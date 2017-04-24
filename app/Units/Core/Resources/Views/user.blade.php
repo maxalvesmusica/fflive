@@ -71,8 +71,8 @@
                                             <!-- OpÃ§Ãµes do Menu -->
                                             <div class="navbar-collapse collapse">
                                                 <ul class="nav navbar-nav">
-                                                    <li><a href="{{ route('user.index') }}">HOME</a></li>
-                                                    <li><a href="{{ route('transmission.user') }}">TRANSMISSÕES</a></li>
+                                                    <li><a href="{{ route('user.index') }}"><i class="fa fa-home"></i> HOME</a></li>
+                                                    <li><a href="{{ route('transmission.user') }}"><i class="fa fa-tv"></i> AO VIVO</a></li>
                                                     <!--<li><a href="user.games">DEIXE SEU PALPITE</a></li>
                                                     <li class="active"><a href="user.bonus"><b>GANHE BÔNUS!</b></a></li>
                                                     <li><a href="logout">SAIR</a></li> -->

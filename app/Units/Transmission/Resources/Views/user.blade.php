@@ -10,6 +10,11 @@
                 <ul class="list-unstyled top_profiles scroll-view">
                     <li class="media event">
                         <h4>{{$t->match}}</h4>
+                        <div class="fb-share-button"
+                             data-href="{{ $t->facebook }}"
+                             size="large"
+                             data-layout="button_count">
+                        </div>
                         <div class="embed-responsive embed-responsive-16by9">
                             {!! $t->link !!}
                         </div>

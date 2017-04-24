@@ -53,7 +53,6 @@
                         <div class="media-body">
 
                             <div class="col-md-6 m-t-10">
-                                <span class="badge bg-yellow"> Transmissão Ao Vivo</span>
                                 <p class="title" href="#"><strong>{{ $match->tone }}</strong> <small>vs</small> <strong>{{ $match->ttwo }}</strong></p>
                                 <p>Campeonato: {{ $match->championship }}</p>
                                 <p> <small>{{ $match->present()->date }}</small></p>
@@ -102,9 +101,6 @@
         </div>
     </div>
     @endif
-    <div class="col-md-12">
-        <a href="http://www.futebolfacil.com" target="blank" class="btn btn-block btn-danger" style="max-width: 340px; margin: auto;"><b>APOSTE AQUI</b></a>
-    </div>
 @stop
 
 @section('scripts')

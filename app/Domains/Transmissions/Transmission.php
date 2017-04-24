@@ -14,6 +14,6 @@ class Transmission extends Model
     protected $table = 'transmissions';
 
     protected $fillable = [
-        'match', 'link', 'live'
+        'match', 'link', 'live', 'facebook'
     ];
 }
