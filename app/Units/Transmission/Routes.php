@@ -26,6 +26,7 @@ class Routes extends RouteFile
     {
         $this->router->group(['prefix' => 'admin/transmissoes', 'middleware' => 'auth'], function () {
             $this->router->get('nova', 'TransmissionController@create')->name('transmission.create');
+            $this->router->get('{id}/hide', 'TransmissionController@hide')->name('transmission.hide');
             $this->router->post('nova', 'TransmissionController@store')->name('transmission.store');
             $this->router->get('{date?}', 'TransmissionController@index')->name('transmission.index');
         });

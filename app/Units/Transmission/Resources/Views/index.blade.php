@@ -32,8 +32,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Link</th>
-                                <th>Status</th>
+                                <th>Partida</th>
                                 <th>Opções</th>
                             </tr>
                             </thead>
@@ -41,8 +40,10 @@
                             @foreach ($transmissions as $t)
                                 <tr>
                                     <td>{{$t->id}}</td>
-                                    <td>{{$t->link }}</td>
-                                    <td>{{$t->present()->status}}</td>
+                                    <td>{{$t->match }}</td>
+                                    @if($t->live)
+                                        <td><a href="{{route('transmission.hide', $t->id)}}" class="btn btn-primary">Ocultar</a></td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>

@@ -35,6 +35,13 @@ class TransmissionController extends Controller
         return view('transmission::user', compact('transmissions'));
     }
 
+    public function hide($id)
+    {
+        $this->transmissionRepository->update(['live' => 0], $id);
+
+        return redirect()->route('transmission.index');
+    }
+
     public function store(Request $request)
     {
         $input = $request->except(['_token']);

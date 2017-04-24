@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Units\Game;
+namespace App\Units\Bet;
 
 use Codecasts\Support\Http\Routing\RouteFile;
 
@@ -24,7 +24,7 @@ class Routes extends RouteFile
     protected function accessRoutes()
     {
         $this->router->group(['prefix' => 'palpites', 'middleware' => 'auth'], function () {
-            $this->router->get('salvar', 'GameController@store')->name('game.stores');
+            $this->router->get('salvar', 'BetController@store')->name('game.store');
         });
     }
 }

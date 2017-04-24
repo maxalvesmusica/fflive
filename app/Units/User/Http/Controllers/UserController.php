@@ -2,6 +2,8 @@
 
 namespace App\Units\User\Http\Controllers;
 
+use App\Domains\Links\LinkRepository;
+use App\Domains\Matches\Match;
 use App\Domains\Matches\MatchRepository;
 use App\Domains\Bonus\BonusRepository;
 use App\Domains\Users\UserRepository;
@@ -13,21 +15,26 @@ class UserController extends Controller
     protected $userRepository;
     protected $matchRepository;
     protected $bonusRepository;
+    protected $linkRepository;
 
-    public function __construct(UserRepository $ur, MatchRepository $mr, BonusRepository $br)
+    public function __construct(UserRepository $ur, MatchRepository $mr, BonusRepository $br, LinkRepository $lr)
     {
         parent::__construct();
         $this->userRepository = $ur;
         $this->matchRepository = $mr;
         $this->bonusRepository = $br;
+        $this->linkRepository = $lr;
     }
 
     public function index()
     {
         $user = \Auth::user();
         $bonus = $this->bonusRepository->findWhere(['user_id' => \Auth::user()->id, 'done' => 0])->first();
-        $matches = [];
-        return view('user::index', compact('user', 'matches', 'bonus'));
+        $matches = $this->matchRepository->findWhere([['datetime', 'like', date('Y-m-d')."%"], 'live' => 1]);
+        $link = $this->linkRepository->find(1);
+        $date = Match::where('datetime', 'like', date('Y-m-d').'%')->min('datetime');
+
+        return view('user::index', compact('user', 'matches', 'bonus', 'date', 'link'));
     }
 
     public function games()

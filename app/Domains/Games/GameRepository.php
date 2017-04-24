@@ -21,9 +21,10 @@ class GameRepository extends BaseRepository
         $winners = $this->findWhere(['match_id' => $match, 'score' => $score]);
         if (count($winners) != 0) {
             foreach ($winners as $winner) {
-                $user = $this->userRepository->find($winner->user_id);
-                $balance = $user->balance + 50.00;
-                $this->userRepository->update(['balance' => $balance], $user->id);
+                $this->update(['result' => 1], $winner->id);
+                //$user = $this->userRepository->find($winner->user_id);
+                //$balance = $user->balance + 50.00;
+                //$this->userRepository->update(['balance' => $balance], $user->id);
             }
         }
         return true;

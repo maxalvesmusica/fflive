@@ -14,7 +14,7 @@ class Game extends Model
     protected $presenter = GamePresenter::class;
 
     protected $fillable = [
-        'user_id', 'match_id', 'score', 'result'
+        'user_id', 'bet_id', 'match_id', 'score', 'result'
     ];
 
     public function user()

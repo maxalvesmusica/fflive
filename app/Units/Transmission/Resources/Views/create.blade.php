@@ -17,6 +17,10 @@
 
                         {{ Form::open(['route' => 'transmission.store']) }}
                             <div class="col-md-4 m-t-10">
+                                <label>Jogo</label>
+                                <input type="text" name="match" class="form-control" required/>
+                            </div>
+                            <div class="col-md-4 m-t-10">
                                 <label>Link</label>
                                 <textarea rows="4" cols="50" name="link" class="form-control"></textarea>
                             </div>

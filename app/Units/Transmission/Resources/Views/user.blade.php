@@ -9,7 +9,10 @@
             <div class="col-md-12">
                 <ul class="list-unstyled top_profiles scroll-view">
                     <li class="media event">
-                        {!! $t->link !!}
+                        <h4>{{$t->match}}</h4>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            {!! $t->link !!}
+                        </div>
                     </li>
                 </ul>
 

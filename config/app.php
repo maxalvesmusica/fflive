@@ -198,6 +198,7 @@ return [
         App\Units\Transfer\Providers\UnitServiceProvider::class,
         App\Units\Bonus\Providers\UnitServiceProvider::class,
         App\Units\Transmission\Providers\UnitServiceProvider::class,
+        App\Units\Bet\Providers\UnitServiceProvider::class,
 
     ],
 

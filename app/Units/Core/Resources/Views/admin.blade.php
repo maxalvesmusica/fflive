@@ -42,8 +42,9 @@
             <ul class="nav navbar-nav">
                 @if (\Auth::check())
                     <li><a href="{{ route('transmission.index') }}">TRANSMISSÕES</a></li>
-                    <!--<li><a href="match.index">JOGOS</a></li>
-                    <li><a href="transfer.index">TRANSFERENCIAS</a></li>
+                    <li><a href="{{ route('match.index') }}">JOGOS</a></li>
+                    <li><a href="{{ route('core.link') }}">LINK</a></li>
+                    <!--<li><a href="transfer.index">TRANSFERENCIAS</a></li>
                     <li><a href="bonus.index">BONUS</a></li> -->
                     <li><a href="{{ route('user.list') }}">USUARIOS</a></li>
                     <li><a href="{{ route('logout') }}">SAIR</a></li>
