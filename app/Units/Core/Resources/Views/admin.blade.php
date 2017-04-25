@@ -45,7 +45,7 @@
                     <li><a href="{{ route('match.index') }}">JOGOS</a></li>
                     <li><a href="{{ route('transmission.index') }}">TRANSMISSÕES</a></li>
                     <li><a href="{{ route('transfer.index') }}">TRANSFERENCIAS</a></li>
-                    <!-- <li><a href="bonus.index">PALPITES</a></li> -->
+                    <li><a href="{{ route('bonus.index') }}">BÔNUS</a></li>
                     <li><a href="{{ route('user.list') }}">USUARIOS</a></li>
                     <li><a href="{{ route('logout') }}">SAIR</a></li>
                 @endif

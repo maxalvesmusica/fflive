@@ -32,7 +32,7 @@
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>
-                                    <a>{{$user->name}}</a>
+                                    <a href="http://www.facebook.com/{{$user->idface}}" target="_blank">{{$user->name}}</a>
                                 </td>
                                 <td>
                                     <ul class="list-inline">

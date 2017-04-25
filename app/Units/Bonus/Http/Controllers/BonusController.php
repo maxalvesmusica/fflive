@@ -26,6 +26,13 @@ class BonusController extends Controller
         return view('bonus::index', compact('bonus', 'type', 'date'));
     }
 
+    public function check($date)
+    {
+        $this->bonusRepository->check($date);
+
+        return redirect()->route('bonus.index');
+    }
+
     public function brequest(Request $request)
     {
         $tp = ($request->get('type') == 'insta') ? $request->get('val') : 1;
@@ -44,9 +51,12 @@ class BonusController extends Controller
     public function update($bonus, $user)
     {
         $user = $this->userRepository->find($user);
+        $b = $this->bonusRepository->find($bonus);
         $this->bonusRepository->update(['done' => 1], $bonus);
-        $balance = $user->balance + 5.00;
-        $this->userRepository->update(['balance' => $balance], $user->id);
+        if ($b->value == 10 OR $b->value == 20) {
+            $balance = $user->balance + $b->value;
+            $this->userRepository->update(['balance' => $balance], $user->id);
+        }
 
         return redirect()->route('bonus.index');
     }

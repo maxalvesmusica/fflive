@@ -12,6 +12,7 @@
                     <div class="x_title">
                         <h2 style="float: left;">Jogos</h2>
                         <div class="navbar-right m-t-10">
+                            <a href="{{ route('bonus.check', $date) }}" class="btn btn-primary">GERAR BONIFICAÇÃO</a>
                             <a href="{{ route('match.create') }}" class="btn btn-primary">CADASTRAR JOGO</a>
                         </div>
                         <div class="clearfix"></div>

@@ -25,6 +25,7 @@ class Routes extends RouteFile
     protected function accessRoutes()
     {
         $this->router->group(['prefix' => 'admin/bonus', 'middleware' => 'auth'], function () {
+            $this->router->get('check/{date}', 'BonusController@check')->name('bonus.check');
             $this->router->get('{bonus}/{user}/update', 'BonusController@update')->name('bonus.update');
             $this->router->get('{type?}/{date?}', 'BonusController@index')->name('bonus.index');
         });
@@ -33,7 +34,7 @@ class Routes extends RouteFile
     protected function userRoutes()
     {
         $this->router->group(['prefix' => 'bonus', 'middleware' => 'auth'], function () {
-            $this->router->get('request', 'BonusController@brequest')->name('bonus.request');
+            //$this->router->get('request', 'BonusController@brequest')->name('bonus.request');
         });
     }
 }

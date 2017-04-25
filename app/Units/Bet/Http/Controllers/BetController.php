@@ -31,4 +31,11 @@ class BetController extends Controller
         $game = $this->gameRepository->create($input);
         return $game;
     }
+
+    public function show($id)
+    {
+        $bet = $this->betRepository->with(['games', 'games.match'])->find($id);
+
+        return view('bet::show', compact('bet'));
+    }
 }

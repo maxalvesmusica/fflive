@@ -2,6 +2,7 @@
 
 namespace App\Domains\Bonus;
 
+use App\Domains\Bets\Bet;
 use App\Domains\Matches\Match;
 use App\Domains\Users\User;
 use Codecasts\Presenter\Presentable;
@@ -16,7 +17,7 @@ class Bonus extends Model
     protected $table = 'bonus';
 
     protected $fillable = [
-        'user_id', 'match_id', 'type', 'done'
+        'user_id', 'bet_id', 'match_id', 'type', 'value', 'done'
     ];
 
     public function user()
@@ -27,5 +28,10 @@ class Bonus extends Model
     public function match()
     {
         return $this->belongsTo(Match::class, 'match_id');
+    }
+
+    public function bet()
+    {
+        return $this->belongsTo(Bet::class, 'bet_id');
     }
 }

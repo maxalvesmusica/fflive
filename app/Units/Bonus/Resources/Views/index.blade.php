@@ -37,10 +37,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Usuário</th>
-                                <th>Email/Login/Jogo</th>
-                                <th>Rede</th>
+                                <th>Tipo</th>
+                                <th>Prêmio</th>
                                 <th>Status</th>
-                                <th>Solicitação</th>
                                 <th>Conclusão</th>
                                 <th>Opções</th>
                             </tr>
@@ -49,16 +48,10 @@
                             @foreach ($bonus as $b)
                                 <tr>
                                     <td>{{$b->id}}</td>
-                                    <td>{{$b->user->name }}</td>
-                                    <td>
-                                    @if ($b->type == 'transmissao')
-                                        {{$b->match->tone.' X '.$b->match->ttwo}}
-                                    @else
-                                        {{($b->type == 'insta') ? $b->user->insta : $b->user->email }}</td>
-                                    @endif
-                                    <td>{{$b->type }}</td>
+                                    <td><a href="http://www.facebook.com/{{$b->user->idface}}" target="_blank">{{$b->user->name }}</a></td>
+                                    <td><a href="{{ route('bet.show', $b->bet_id) }}">{{$b->type }}</a></td>
+                                    <td>{{$b->present()->value }}</td>
                                     <td>{{$b->present()->status}}</td>
-                                    <td>{{$b->present()->request}}</td>
                                     <td>{{$b->done == 1 ? $b->present()->done : '' }}</td>
                                     <td>
                                         <?php

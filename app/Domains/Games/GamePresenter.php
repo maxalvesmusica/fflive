@@ -13,4 +13,14 @@ class GamePresenter extends Presenter
     {
         return ($this->entity->status == 1) ? 'ativo' : 'Bloqueado';
     }
+
+    public function color()
+    {
+        return ($this->entity->result == 1) ? 'green' : 'orange';
+    }
+
+    public function result()
+    {
+        return ($this->entity->result == 1) ? 'Acertou!' : '';
+    }
 }
