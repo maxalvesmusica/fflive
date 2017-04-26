@@ -411,8 +411,9 @@ img.avatar {
     border: 1px solid #e6e6e6
 }
 
-
-
+.embed-responsive{
+    min-height: 600px !important;
+}
 
 /*----NOVO PRA COLOCAR---*/
 .menu-usuario{

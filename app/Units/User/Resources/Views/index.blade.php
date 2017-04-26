@@ -1,7 +1,9 @@
 @extends('core::user')
 
 @section('content')
-    @if (date('Y-m-d H:i:s') > $date)
+    @if(\Auth::user()->block == 1)
+        <b>Você não pode dar palpites no momento!</b>
+    @elseif (date('Y-m-d H:i:s') > $date)
         <b>O tempo de palpite acaba quando algum dos jogos iniciar. Volte amanhã e aproveite!</b>
     @else
     @foreach ($matches as $match)
@@ -25,13 +27,13 @@
                                         $score = $game->where('match_id', $match->id)->where('user_id', \Auth::user()->id)->first();
                                         $r = $score ? explode('x', $score->score) : null;
                                         ?>
-                                        <input type="text" name="vone" id="vone{{$match->id}}" class="form-control form-palpite"
+                                        <input type="number" name="vone" id="vone{{$match->id}}" class="form-control form-palpite"
                                                <?php if ($r) { ?>
                                                value="{{$r[0]}}" disabled
                                         <?php }?>
                                         >
                                         <div class="input-group-addon">X</div>
-                                        <input type="text" name="vtwo" id="vtwo{{$match->id}}" onblur="save({{$match->id}})" class="form-control form-palpite"
+                                        <input type="number" name="vtwo" id="vtwo{{$match->id}}" onblur="save({{$match->id}})" class="form-control form-palpite"
                                                <?php if ($r) { ?>
                                                value="{{$r[1]}}" disabled
                                         <?php }?>

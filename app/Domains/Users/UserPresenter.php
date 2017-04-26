@@ -17,11 +17,11 @@ class UserPresenter extends Presenter
 
     public function action()
     {
-        return ($this->entity->status == 1) ? 0 : 1;
+        return ($this->entity->block == 1) ? 0 : 1;
     }
 
     public function active()
     {
-        return ($this->entity->status == 1) ? 'ativo' : 'Bloqueado';
+        return ($this->entity->block == 1) ? 'Liberar' : 'Bloquear';
     }
 }

@@ -77,6 +77,13 @@ class UserController extends Controller
         return view('user::profile', compact('user'));
     }
 
+    public function block($user, $action)
+    {
+        $this->userRepository->update(['block' => $action], $user);
+
+        return redirect()->route('user.list');
+    }
+
     public function updateLogin(Request $request)
     {
         $this->userRepository->update(['loginff' => $request->get('loginff')], \Auth::user()->id);

@@ -38,6 +38,7 @@ class Routes extends RouteFile
             $this->router->get('partidas', 'UserController@games')->name('user.games');
             $this->router->get('bonus', 'UserController@bonus')->name('user.bonus');
             $this->router->get('perfil', 'UserController@profile')->name('user.profile');
+            $this->router->get('{id}/{action}/block', 'UserController@block')->name('user.block');
         });
     }
 
