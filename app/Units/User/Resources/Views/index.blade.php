@@ -1,33 +1,6 @@
 @extends('core::user')
 
 @section('content')
-
-    <img class="profile-user-img img-responsive img-circle" src="{{ $user->avatar }}" alt="User profile picture">
-
-    <h3 class="profile-username text-center">{{ $user->name.' - '.$user->loginff }}</h3>
-
-    <p class="text-muted text-center"><i class="fa fa-envelope"></i> {{ $user->email }}</p>
-    <div class="row">
-        <div class="col-md-12">
-            <ol class="breadcrumb" style="overflow: hidden;">
-                <div class="col-md-12">
-                    <form class="form-inline" style="width: 100%; max-width: 270px; margin: auto;">
-                        @if ( ! \Auth::user()->loginff)
-                            <br> Crie seu cadastro em <a href="http://www.futebolfacil.com/#/?lang=pt-br&btag=FFTV" target="_blank">Futebol Fácil</a> Para solicitar transferência do saldo.
-                            <br> Já tem cadastro?
-                            <input type="text" name="loginff" class="loginff" placeholder="Insira aqui o login">
-                            <a href="javascript:login();" class="btn btn-primary login">Salvar</a>
-                        @endif
-                    </form>
-                </div>
-            </ol>
-            @if (count($bonus) != 0)
-            <div class="alert alert-info" role="alert">
-                <p>Estamos analisando seu <b>{{$bonus->type}}</b> para liberar seu bônus de R$ 5,00.</p>
-            </div>
-            @endif
-        </div>
-    </div>
     @if (date('Y-m-d H:i:s') > $date)
         <b>O tempo de palpite acaba quando algum dos jogos iniciar. Volte amanhã e aproveite!</b>
     @else

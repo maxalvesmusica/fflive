@@ -71,6 +71,12 @@ class UserController extends Controller
         return view('user::list', compact('users', 'count', 'links'));
     }
 
+    public function profile()
+    {
+        $user = $this->userRepository->find(\Auth::user()->id);
+        return view('user::profile', compact('user'));
+    }
+
     public function updateLogin(Request $request)
     {
         $this->userRepository->update(['loginff' => $request->get('loginff')], \Auth::user()->id);

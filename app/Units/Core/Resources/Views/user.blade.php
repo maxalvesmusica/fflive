@@ -73,15 +73,10 @@
                                                 <li><a href="{{ route('user.index') }}"><i class="fa fa-home"></i> HOME</a></li>
                                                 <li><a href="{{ route('transmission.user') }}"><i class="fa fa-tv"></i> AO VIVO</a></li>
                                                 <li><a href="{{ route('bet.user') }}"><i class="fa fa-list"></i> MEUS PALPITES</a></li>
+                                                <li><a href="{{ route('user.profile') }}"><i class="fa fa-user-o"></i> PERFIL</a></li>
                                                 <!--<li><a href="user.games">DEIXE SEU PALPITE</a></li>
                                                 <li class="active"><a href="user.bonus"><b>GANHE BÔNUS!</b></a></li>
                                                 <li><a href="logout">SAIR</a></li> -->
-
-                                                <li class="navbar-right">
-                                                    @if (\Auth::user()->balance > 20.00)
-                                                        <a href="{{route('transfer.request')}}" class="btn btn-success">Solicitar Transferência</a>
-                                                    @endif
-                                                </li>
                                                 <li class="navbar-right">
                                                     <a class="btn" type="button">
                                                         Seu Saldo: <span class="badge">R$ {{\Auth::user()->present()->balance}}</span>
