@@ -83,8 +83,8 @@
                                                     @endif
                                                 </li>
                                                 <li class="navbar-right">
-                                                    <a class="btn btn-info" type="button">
-                                                        Seu Saldo: <span class="badge">{{\Auth::user()->present()->balance}}</span>
+                                                    <a class="btn" type="button">
+                                                        Seu Saldo: <span class="badge">R$ {{\Auth::user()->present()->balance}}</span>
                                                     </a>
                                                 </li>
                                             </ul>
