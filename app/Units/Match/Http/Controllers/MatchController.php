@@ -84,7 +84,7 @@ class MatchController extends Controller
     public function details($match)
     {
         $bets = $this->gameRepository->with(['user'])->orderBy('id', 'DESC')->findWhere(['match_id' => $match]);
-
-        return view('match::details', compact('bets'));
+        $count = $this->gameRepository->findWhere(['match_id' => $match])->count();
+        return view('match::details', compact('bets', 'count'));
     }
 }

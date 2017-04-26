@@ -79,7 +79,7 @@
                                                 <li><a href="logout">SAIR</a></li> -->
                                                 <li class="navbar-right">
                                                     <a class="btn" type="button">
-                                                        Seu Saldo: <span class="badge">R$ {{\Auth::user()->present()->balance}}</span>
+                                                        Seu Saldo: <span class="badge" style="background: red">R$ {{\Auth::user()->present()->balance}}</span>
                                                     </a>
                                                 </li>
                                             </ul>
