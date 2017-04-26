@@ -12,21 +12,7 @@
             <ol class="breadcrumb" style="overflow: hidden;">
                 <div class="col-md-12">
                     <form class="form-inline" style="width: 100%; max-width: 270px; margin: auto;">
-                        <div class="form-group">
-                            <label>Saldo atual:</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><h3><b>R$ {{ $user->present()->balance }}</b></h3></div>
-                            </div>
-                        </div>
-                        @if (\Auth::user()->loginff)
-                            @if (\Auth::user()->balance > 20.00)
-                                <a href="{{route('transfer.request')}}" class="btn btn-block btn-success m-t-10">Solicitar Transferência</a>
-                                O prazo para transferência é de 24horas
-                            @else
-                                <a href="javascript:;" class="btn btn-block btn-success m-t-10">Solicitar Transferência</a>
-                                Mínimo de transferência é R$ 20 reais
-                            @endif
-                        @else
+                        @if ( ! \Auth::user()->loginff)
                             <br> Crie seu cadastro em <a href="http://www.futebolfacil.com/#/?lang=pt-br&btag=FFTV" target="_blank">Futebol Fácil</a> Para solicitar transferência do saldo.
                             <br> Já tem cadastro?
                             <input type="text" name="loginff" class="loginff" placeholder="Insira aqui o login">

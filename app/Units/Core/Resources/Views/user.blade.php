@@ -59,26 +59,38 @@
                                 <div class="box-body box-profile">
                                     <!-- Menu Responsivo, fixo no topo -->
                                     <div class="navbar-default menu-usuario" role="navigation">
-                                        <div class="container">
-                                            <div class="navbar-header">
+                                        <div class="navbar-header">
 
-                                                <!--Botao oculto para menu responsivo -->
-                                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                                                    <span style="background:#fff;" class="icon-bar"></span><span style="background:#fff;" class="icon-bar"></span> <span style="background:#fff;" class="icon-bar"></span>
-                                                </button>
-                                            </div>
+                                            <!--Botao oculto para menu responsivo -->
+                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                                                <span style="background:#fff;" class="icon-bar"></span><span style="background:#fff;" class="icon-bar"></span> <span style="background:#fff;" class="icon-bar"></span>
+                                            </button>
+                                        </div>
 
-                                            <!-- OpÃ§Ãµes do Menu -->
-                                            <div class="navbar-collapse collapse">
-                                                <ul class="nav navbar-nav">
-                                                    <li><a href="{{ route('user.index') }}"><i class="fa fa-home"></i> HOME</a></li>
-                                                    <li><a href="{{ route('transmission.user') }}"><i class="fa fa-tv"></i> AO VIVO</a></li>
-                                                    <li><a href="{{ route('bet.user') }}"><i class="fa fa-list"></i> MEUS PALPITES</a></li>
-                                                    <!--<li><a href="user.games">DEIXE SEU PALPITE</a></li>
-                                                    <li class="active"><a href="user.bonus"><b>GANHE BÔNUS!</b></a></li>
-                                                    <li><a href="logout">SAIR</a></li> -->
-                                                </ul>
-                                            </div>
+                                        <!-- OpÃ§Ãµes do Menu -->
+                                        <div class="navbar-collapse collapse">
+                                            <ul class="nav navbar-nav" style="width: 100%;">
+                                                <li><a href="{{ route('user.index') }}"><i class="fa fa-home"></i> HOME</a></li>
+                                                <li><a href="{{ route('transmission.user') }}"><i class="fa fa-tv"></i> AO VIVO</a></li>
+                                                <li><a href="{{ route('bet.user') }}"><i class="fa fa-list"></i> MEUS PALPITES</a></li>
+                                                <!--<li><a href="user.games">DEIXE SEU PALPITE</a></li>
+                                                <li class="active"><a href="user.bonus"><b>GANHE BÔNUS!</b></a></li>
+                                                <li><a href="logout">SAIR</a></li> -->
+
+                                                <li class="navbar-right">
+                                                    @if (\Auth::user()->balance > 20.00)
+                                                        <a href="{{route('transfer.request')}}" class="btn btn-success">Solicitar Transferência</a>
+                                                    @else
+                                                        <a href="javascript:;" class="btn btn-success">Solicitar Transferência</a>
+                                                        Mínimo de transferência é R$ 20 reais
+                                                    @endif
+                                                </li>
+                                                <li class="navbar-right">
+                                                    <a class="btn btn-info" type="button">
+                                                        Seu Saldo: <span class="badge">{{\Auth::user()->present()->balance}}</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <!-- Fim do Menu responsivo -->
