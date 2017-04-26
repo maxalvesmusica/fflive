@@ -80,9 +80,6 @@
                                                 <li class="navbar-right">
                                                     @if (\Auth::user()->balance > 20.00)
                                                         <a href="{{route('transfer.request')}}" class="btn btn-success">Solicitar Transferência</a>
-                                                    @else
-                                                        <a href="javascript:;" class="btn btn-success">Solicitar Transferência</a>
-                                                        Mínimo de transferência é R$ 20 reais
                                                     @endif
                                                 </li>
                                                 <li class="navbar-right">
