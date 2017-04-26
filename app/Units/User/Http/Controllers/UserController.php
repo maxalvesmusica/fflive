@@ -57,12 +57,18 @@ class UserController extends Controller
         return $request->all();
     }
 
-    public function show()
+    public function show($search = '')
     {
-        $users = $this->userRepository->orderBy('id', 'desc')->paginate();
+        if ($search) {
+            $links = false;
+            $users = $this->userRepository->findWhere([['name', 'like', "$search%"]]);
+        } else {
+            $links = true;
+            $users = $this->userRepository->orderBy('id', 'desc')->paginate();
+        }
         $count = $this->userRepository->all()->count();
 
-        return view('user::list', compact('users', 'count'));
+        return view('user::list', compact('users', 'count', 'links'));
     }
 
     public function updateLogin(Request $request)

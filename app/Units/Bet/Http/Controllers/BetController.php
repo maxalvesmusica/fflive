@@ -38,4 +38,12 @@ class BetController extends Controller
 
         return view('bet::show', compact('bet'));
     }
+
+    public function user($date = '')
+    {
+        $date = $date ?: date('Y-m-d');
+        $bet = $this->betRepository->with(['games', 'games.match'])->findWhere([['created_at', 'like', "$date%"], 'user_id' => \Auth::user()->id])->first();
+
+        return view('bet::user', compact('bet'));
+    }
 }

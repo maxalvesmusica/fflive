@@ -41,7 +41,7 @@
     <div class="center-box">
 
         <div class="row">
-            <div class="logo"><a href="."><img src="{{ url('img/logo.png') }}"></a></div>
+            <div class="logo"><a href="http://www.futebolfacil.com.br"><img src="{{ url('img/logo.png') }}"></a></div>
         </div>
 
         <div class="row">
@@ -73,6 +73,7 @@
                                                 <ul class="nav navbar-nav">
                                                     <li><a href="{{ route('user.index') }}"><i class="fa fa-home"></i> HOME</a></li>
                                                     <li><a href="{{ route('transmission.user') }}"><i class="fa fa-tv"></i> AO VIVO</a></li>
+                                                    <li><a href="{{ route('bet.user') }}"><i class="fa fa-list"></i> MEUS PALPITES</a></li>
                                                     <!--<li><a href="user.games">DEIXE SEU PALPITE</a></li>
                                                     <li class="active"><a href="user.bonus"><b>GANHE BÔNUS!</b></a></li>
                                                     <li><a href="logout">SAIR</a></li> -->

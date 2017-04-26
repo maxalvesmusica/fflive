@@ -27,7 +27,7 @@ class Routes extends RouteFile
     {
         $this->router->get('loginff', 'UserController@updateLogin')->middleware('auth')->name('user.update.login');
         $this->router->group(['prefix' => 'admin/usuarios', 'middleware' => 'auth'], function() {
-            $this->router->get('/', 'UserController@show')->name('user.list');
+            $this->router->get('{search?}', 'UserController@show')->name('user.list');
         });
     }
 

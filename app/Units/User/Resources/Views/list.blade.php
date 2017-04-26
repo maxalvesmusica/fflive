@@ -12,7 +12,14 @@
                         <h2>Cadastros | Total: {{$count}}</h2>
                         <div class="clearfix"></div>
                     </div>
-
+                    <!--pesquisa-->
+                    <div class="col-md-3 col-sm-4">
+                        <input type="text" class="form-control user" name="user">
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <button onclick="search()" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Pesquisar</button>
+                    </div>
+                    <!--pesquisa-->
                     <div class="x_content">
 
                         <!-- start project list -->
@@ -21,6 +28,7 @@
                             <tr>
                                 <th style="width: 1%">#</th>
                                 <th style="width: 20%">Usuário</th>
+                                <th>Login FF</th>
                                 <th>Foto de Perfil</th>
                                 <th>E-mail</th>
                                 <th>Saldo</th>
@@ -34,6 +42,7 @@
                                 <td>
                                     <a href="http://www.facebook.com/{{$user->idface}}" target="_blank">{{$user->name}}</a>
                                 </td>
+                                <td>{{$user->loginff}}</td>
                                 <td>
                                     <ul class="list-inline">
                                         <li>
@@ -49,7 +58,9 @@
                             </tbody>
                         </table>
                         <!-- end project list -->
-                        {{ $users->links() }}
+                        @if ($links)
+                            {{ $users->links() }}
+                        @endif
                     </div>
                 </div>
 
@@ -57,4 +68,14 @@
 
         </div>
     </div>
+@stop
+
+@section('scripts')
+    <script type="text/javascript">
+        function search()
+        {
+            var user = $(".user").val();
+            window.location.href = "{{config('app.url')}}/admin/usuarios/"+user;
+        }
+    </script>
 @stop

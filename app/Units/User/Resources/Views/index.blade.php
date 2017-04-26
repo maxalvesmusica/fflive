@@ -27,7 +27,7 @@
                                 Mínimo de transferência é R$ 20 reais
                             @endif
                         @else
-                            <br> Crie seu cadastro em <a href="http://futebolfacil.com" target="_blank">Futebol Fácil</a> Para solicitar transferência do saldo.
+                            <br> Crie seu cadastro em <a href="http://www.futebolfacil.com/#/?lang=pt-br&btag=FFTV" target="_blank">Futebol Fácil</a> Para solicitar transferência do saldo.
                             <br> Já tem cadastro?
                             <input type="text" name="loginff" class="loginff" placeholder="Insira aqui o login">
                             <a href="javascript:login();" class="btn btn-primary login">Salvar</a>
