@@ -39,16 +39,18 @@ class BonusRepository extends BaseRepository
     {
         $bets = $this->getWons($date);
         foreach ($bets as $key => $bet) {
-            $current = current($bet);
-            $bonus = $this->bonus(count($bet));
-            $arr = [
-                'user_id' => $current['user_id'],
-                'bet_id' => $current['bet_id'],
-                'type' => 'Palpites',
-                'value' => $bonus,
-                'done' => 0
-            ];
-            $this->create($arr);
+            if (count($bet) >= 2) {
+                $current = current($bet);
+                $bonus = $this->bonus(count($bet));
+                $arr = [
+                    'user_id' => $current['user_id'],
+                    'bet_id' => $current['bet_id'],
+                    'type' => 'Palpites',
+                    'value' => $bonus,
+                    'done' => 0
+                ];
+                $this->create($arr);
+            }
         }
         return true;
     }
