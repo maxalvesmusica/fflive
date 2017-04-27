@@ -44,6 +44,50 @@ class UserController extends Controller
       return view('user::games', compact('matches'));
     }
 
+    public function balance($user)
+    {
+        if (\Auth::user()->id != $user) {
+            return redirect()->route('user.index');
+        }
+        $user = $this->userRepository->find($user);
+
+        return view('user::balance', compact('user'));
+    }
+
+    public function whats($user)
+    {
+        if (\Auth::user()->id != $user) {
+            return redirect()->route('user.index');
+        }
+        $user = $this->userRepository->find($user);
+
+        return view('user::whats', compact('user'));
+    }
+
+    public function face($user)
+    {
+        if (\Auth::user()->id != $user) {
+            return redirect()->route('user.index');
+        }
+        $user = $this->userRepository->find($user);
+
+        return view('user::face', compact('user'));
+    }
+
+    public function insta($user)
+    {
+        $user = $this->userRepository->find($user);
+
+        return view('user::insta', compact('user'));
+    }
+
+    public function postBalance(Request $request, $user)
+    {
+        $this->userRepository->update(['balance' => $request->get('balance')], $user);
+
+        return redirect()->route('user.list');
+    }
+
     public function bonus()
     {
         $user = \Auth::user();

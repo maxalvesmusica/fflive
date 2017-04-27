@@ -2,7 +2,10 @@
 
 namespace App\Units\Match\Http\Controllers;
 
+use App\Domains\Bonus\BonusRepository;
 use App\Domains\Games\GameRepository;
+use App\Domains\Links\LinkRepository;
+use App\Domains\Matches\Match;
 use App\Domains\Matches\MatchRepository;
 use App\Units\Core\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,12 +14,16 @@ class MatchController extends Controller
 {
     protected $matchRepository;
     protected $gameRepository;
+    protected $bonusRepository;
+    protected $linkRepository;
 
-    public function __construct(MatchRepository $ur, GameRepository $gr)
+    public function __construct(MatchRepository $ur, GameRepository $gr, BonusRepository $br, LinkRepository $lr)
     {
         parent::__construct();
         $this->matchRepository = $ur;
         $this->gameRepository = $gr;
+        $this->bonusRepository = $br;
+        $this->linkRepository = $lr;
     }
 
     public function index($date = '')
@@ -30,6 +37,17 @@ class MatchController extends Controller
     public function create()
     {
         return view('match::create');
+    }
+
+    public function user()
+    {
+        $user = \Auth::user();
+        $bonus = $this->bonusRepository->findWhere(['user_id' => \Auth::user()->id, 'done' => 0])->first();
+        $matches = $this->matchRepository->findWhere([['datetime', 'like', date('Y-m-d')."%"], 'live' => 1]);
+        $link = $this->linkRepository->find(1);
+        $date = Match::where('datetime', 'like', date('Y-m-d').'%')->min('datetime');
+
+        return view('user::palpites', compact('user', 'matches', 'bonus', 'date', 'link'));
     }
 
     public function store(Request $request)

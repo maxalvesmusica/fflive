@@ -54,7 +54,10 @@
                                 <td><small>{{ $user->email }}</small></td>
                                 <td><small>R$ {{ $user->present()->balance }}</small></td>
                                 <td>{{date('d/m/Y H:i:s', strtotime($user->created_at))}}</td>
-                                <td><a href="{{ route('user.block', [$user->id, $user->present()->action]) }}" class="btn btn-info">{{$user->present()->active}}</a></td>
+                                <td>
+                                    <a href="{{ route('user.block', [$user->id, $user->present()->action]) }}" class="btn btn-info">{{$user->present()->active}}</a>
+                                    <a href="{{ route('user.balance', $user->id) }}" class="btn btn-info">Saldo</a>
+                                </td>
                             </tr>
                             @endforeach
                             </tbody>

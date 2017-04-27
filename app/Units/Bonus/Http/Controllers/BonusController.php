@@ -35,17 +35,16 @@ class BonusController extends Controller
 
     public function brequest(Request $request)
     {
-        $tp = ($request->get('type') == 'insta') ? $request->get('val') : 1;
-        $this->userRepository->update([$request->get('type') => $tp], \Auth::user()->id);
+        $this->userRepository->update([$request->get('type') => $request->get('txt')], \Auth::user()->id);
         $arr = [
           'user_id' => \Auth::user()->id,
-          'match_id' => $request->get('match_id'),
           'type' => $request->get('type'),
+          'value' => 5,
           'done' => 0
         ];
         $this->bonusRepository->create($arr);
 
-        return "OK";
+        return redirect()->route('user.index');
     }
 
     public function update($bonus, $user)

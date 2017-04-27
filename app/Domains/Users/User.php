@@ -13,7 +13,7 @@ class User extends Authenticatable
     protected $presenter = UserPresenter::class;
 
     protected $fillable = [
-        'name', 'loginff', 'email', 'avatar', 'profile', 'balance', 'face', 'youtube', 'insta', 'idface', 'block'
+        'name', 'loginff', 'email', 'avatar', 'profile', 'balance', 'face', 'whats', 'insta', 'idface', 'block'
     ];
 
 }

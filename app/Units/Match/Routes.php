@@ -19,6 +19,7 @@ class Routes extends RouteFile
     public function routes()
     {
         $this->accessRoutes();
+        $this->userRoutes();
     }
 
     protected function accessRoutes()
@@ -33,6 +34,13 @@ class Routes extends RouteFile
             $this->router->get('{match}/block', 'MatchController@block')->name('match.block');
             $this->router->get('{match}/palpites', 'MatchController@details')->name('match.details');
             $this->router->get('{slug}', 'MatchController@show')->name('match.show');
+        });
+    }
+
+    protected function userRoutes()
+    {
+        $this->router->group(['prefix' => 'partidas', 'middleware' => 'auth'], function () {
+            $this->router->get('index', 'MatchController@user')->name('match.user');
         });
     }
 }

@@ -447,3 +447,26 @@ img.avatar {
   margin-top: -7px;
   margin-right: 10px;
 }
+
+.img-pormocao-home{
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+.img-pormocao-home img{
+    width: 100%;
+    max-width: 700px;
+}
+
+.img-pormocao-home2{
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+.img-pormocao-home2:hover{
+    opacity: 0.80;
+}
+.img-pormocao-home2 img{
+    width: 100%;
+    max-width: 700px;
+}

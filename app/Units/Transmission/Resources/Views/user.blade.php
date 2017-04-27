@@ -18,6 +18,7 @@
                         <div class="embed-responsive embed-responsive-16by9">
                             {!! $t->link !!}
                         </div>
+                        <a href="http://www.futebolfacil.com" target="blank" class="btn btn-block btn-danger" style="max-width: 340px; margin: auto;"><b>APOSTE AQUI</b></a>
                     </li>
                 </ul>
 
