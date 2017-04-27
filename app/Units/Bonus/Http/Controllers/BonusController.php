@@ -37,12 +37,15 @@ class BonusController extends Controller
     {
         $this->userRepository->update([$request->get('type') => $request->get('txt')], \Auth::user()->id);
         $arr = [
-          'user_id' => \Auth::user()->id,
-          'type' => $request->get('type'),
-          'value' => 5,
-          'done' => 0
+            'user_id' => \Auth::user()->id,
+            'type' => $request->get('type'),
+            'value' => 5,
+            'done' => 0
         ];
-        $this->bonusRepository->create($arr);
+        $get = $this->bonusRepository->findWhere(['user_id' => \Auth::user()->id, 'type' => $request->get('type')])->first();
+        if ( ! $get) {
+            $this->bonusRepository->create($arr);
+        }
 
         return redirect()->route('user.index');
     }
