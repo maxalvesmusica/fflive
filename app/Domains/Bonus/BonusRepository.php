@@ -2,6 +2,7 @@
 
 namespace App\Domains\Bonus;
 
+use App\Domains\Bets\BetRepository;
 use App\Domains\Games\GameRepository;
 use Illuminate\Container\Container as Application;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -9,11 +10,13 @@ use Prettus\Repository\Eloquent\BaseRepository;
 class BonusRepository extends BaseRepository
 {
     protected $gameRepository;
+    protected $betRepository;
     protected $bonusRepository;
 
-    public function __construct(Application $app, GameRepository $gr)
+    public function __construct(Application $app, GameRepository $gr, BetRepository $br)
     {
         parent::__construct($app);
+        $this->betRepository = $br;
         $this->gameRepository = $gr;
     }
 
@@ -35,6 +38,7 @@ class BonusRepository extends BaseRepository
     public function check($date)
     {
         $bets = $this->getWons($date);
+        dd($bets);
         foreach ($bets as $bet) {
             $bonus = $this->bonus(count($bet));
             $arr = [
@@ -52,7 +56,7 @@ class BonusRepository extends BaseRepository
 
     public function getWons($date)
     {
-        $games = $this->gameRepository->with('match')->findWhere([['created_at', 'like', "$date%"], 'result' => 1]);
+        $games = $this->betRepository->with('match')->findWhere([['created_at', 'like', "$date%"], 'result' => 1]);
         return $games->groupBy('bet_id');
     }
 

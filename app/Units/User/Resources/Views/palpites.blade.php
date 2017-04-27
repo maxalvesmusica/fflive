@@ -7,8 +7,8 @@
         <b>O tempo de palpite acaba quando algum dos jogos iniciar. Volte amanhã e aproveite!</b>
         <a href="{{ route('bet.user') }}" class="btn btn-info">Meus Palpites</a>
     @else
+        <a href="{{ route('bet.user') }}" class="btn btn-info">Meus Palpites</a>
         @foreach ($matches as $match)
-            <a href="{{ route('bet.user') }}" class="btn btn-info">Meus Palpites</a>
             <div class="row">
                 <div class="col-md-12">
                     <ul class="list-unstyled top_profiles scroll-view">
