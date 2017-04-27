@@ -67,16 +67,16 @@ class BonusRepository extends BaseRepository
     public function bonus($count)
     {
         switch ($count) {
-            case 1:
+            case 2:
                 return 10.00;
                 break;
-            case 2:
+            case 3:
                 return 20.00;
                 break;
-            case 3:
+            case 4:
                 return 'Camisa';
                 break;
-            case 4:
+            case 5:
                 return 'iPhone';
                 break;
         }
