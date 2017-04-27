@@ -38,13 +38,12 @@ class BonusRepository extends BaseRepository
     public function check($date)
     {
         $bets = $this->getWons($date);
-        dd($bets);
-        foreach ($bets as $bet) {
+        foreach ($bets as $key => $bet) {
+            $current = current($bet);
             $bonus = $this->bonus(count($bet));
             $arr = [
-                'user_id' => $bet[0]->user_id,
-                'bet_id' => $bet[0]->bet_id,
-                'match_id' => $bet[0]->match_id,
+                'user_id' => $current['user_id'],
+                'bet_id' => $current['bet_id'],
                 'type' => 'Palpites',
                 'value' => $bonus,
                 'done' => 0
@@ -56,8 +55,13 @@ class BonusRepository extends BaseRepository
 
     public function getWons($date)
     {
-        $games = $this->betRepository->with('match')->findWhere([['created_at', 'like', "$date%"], 'result' => 1]);
-        return $games->groupBy('bet_id');
+        $games = $this->betRepository->with('games')->findWhere([['created_at', 'like', "$date%"]]);
+        $filter = $games->map(function($game) {
+            return $game->games->where('result', 1);
+        });
+        $games = array_filter($filter->toArray());
+        $games = collect($games);
+        return $games;
     }
 
     public function bonus($count)
