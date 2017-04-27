@@ -55,7 +55,7 @@ class BonusController extends Controller
         $user = $this->userRepository->find($user);
         $b = $this->bonusRepository->find($bonus);
         $this->bonusRepository->update(['done' => 1], $bonus);
-        if ($b->value == 10 OR $b->value == 20) {
+        if ($b->value == 5 OR$b->value == 10 OR $b->value == 20) {
             $balance = $user->balance + $b->value;
             $this->userRepository->update(['balance' => $balance], $user->id);
         }
