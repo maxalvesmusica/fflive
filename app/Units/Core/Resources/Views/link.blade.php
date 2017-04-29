@@ -52,7 +52,7 @@
                             <button type="submit" class="btn btn-primary btn-block btn-lg">Salvar</button>
                         </div>
                         {!! Form::close() !!}
-
+                        <img src="{{ url('img/'.$img->link)}}" alt="">
                     </div>
                 </div>
 

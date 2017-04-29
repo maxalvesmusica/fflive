@@ -33,15 +33,16 @@ class CoreController
     public function link()
     {
         $link = $this->linkRepository->find(1);
+        $img = $this->linkRepository->find(2);
 
-        return view('core::link', compact('link'));
+        return view('core::link', compact('link', 'img'));
     }
 
     public function update(Request $request)
     {
         $this->linkRepository->update(['link' => $request->get('link')], 1);
 
-        return redirect()->route('transmission.index');
+        return redirect()->route('core.link');
     }
 
     public function img(Request $request)

@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="row">
-        <div class="img-pormocao-home"><img src="{{url('img/home.jpg')}}"></div>
+        <div class="img-pormocao-home">
+            <a href="{{ route('bet.user')}}"><img src="{{url('img/home.jpg')}}"</a>
+        </div>
     </div>
     <!--
     <div class="row">

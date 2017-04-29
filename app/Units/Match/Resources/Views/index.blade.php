@@ -48,9 +48,9 @@
                                 <td>
                                     <div class="input-group">
                                         <?php $r = explode('x', $match->score); ?>
-                                        <input type="text" name="vone" value="{{$r[0]}}" id="vone{{$match->id}}" class="form-control form-palpite">
+                                        <input type="number" name="vone" value="{{$r[0]}}" id="vone{{$match->id}}" class="form-control form-palpite">
                                         <div class="input-group-addon">X</div>
-                                        <input type="text" name="vtwo" value="{{$r[1]}}" id="vtwo{{$match->id}}" class="form-control form-palpite">
+                                        <input type="number" name="vtwo" value="{{$r[1]}}" id="vtwo{{$match->id}}" class="form-control form-palpite">
                                         <a href="#" class="input-group-addon" onclick="save({{$match->id}});return false;">Salvar</a>
                                     </div>
                                 <td>
