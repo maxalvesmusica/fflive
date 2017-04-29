@@ -44,6 +44,28 @@ class CoreController
         return redirect()->route('transmission.index');
     }
 
+    public function img(Request $request)
+    {
+        $this->linkRepository->update(['link' => $this->updloadImage($request)], 2);
+
+        session()->flash('message-class', 'success');
+        return redirect()->route('match.index')->with('message', 'Imagem Cadastrada!');
+    }
+
+    public function updloadImage($request, $type = '')
+    {
+        if ( ! $request->hasFile('image')) {
+            return null;
+        }
+
+        $image = $request->file('image');
+        $path = public_path().'/img';
+        $name = $type.date('mdHis').'.'.$image->getClientOriginalExtension();
+
+        $image->move($path, $name);
+        return $name;
+    }
+
     public function admin()
     {
      if (\Auth::check() && \Auth::user()->profile == 'admin') {

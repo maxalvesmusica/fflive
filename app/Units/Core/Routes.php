@@ -28,5 +28,6 @@ class Routes extends RouteFile
         $this->router->get('admin/link', 'CoreController@link')->name('core.link');
         $this->router->post('admin/link', 'CoreController@update')->name('core.update');
         $this->router->get('index', 'CoreController@dashboard')->name('dashboard');
+        $this->router->post('admin/img', 'CoreController@img')->name('core.img');
     }
 }

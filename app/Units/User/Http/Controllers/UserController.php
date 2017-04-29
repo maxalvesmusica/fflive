@@ -46,7 +46,7 @@ class UserController extends Controller
 
     public function balance($user)
     {
-        if (\Auth::user()->id != $user) {
+        if (\Auth::user()->profile != 'admin') {
             return redirect()->route('user.index');
         }
         $user = $this->userRepository->find($user);

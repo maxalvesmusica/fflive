@@ -56,11 +56,7 @@
                 <p style="text-align: center;"><small>*A promoção só será valida para aqueles que compartilharem a publicação.</small></p>
             </div>
             <div style="width: 100%; max-width: 140px; margin: auto auto 20px auto;">
-                <div class="fb-share-button"
-                     data-href="{{ $link->link }}"
-                     size="large"
-                     data-layout="button_count">
-                </div>
+                <a href="{{ route('bet.finish')}}" class="btn btn-info">Salvar Palpites</a>
             </div>
         </div>
     @endif

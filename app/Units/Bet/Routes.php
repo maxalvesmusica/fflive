@@ -27,6 +27,7 @@ class Routes extends RouteFile
         $this->router->group(['prefix' => 'palpites', 'middleware' => 'auth'], function () {
             $this->router->get('salvar', 'BetController@store')->name('game.store');
             $this->router->get('index', 'BetController@user')->name('bet.user');
+            $this->router->get('concluir', 'BetController@finish')->name('bet.finish');
             $this->router->get('{id}', 'BetController@show')->name('bet.show');
         });
     }
