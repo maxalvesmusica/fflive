@@ -6,6 +6,7 @@
         	<div class="thumbnail">
         		<img src="{{url('img/'.$img->link)}}" alt="">
         	</div>
+        	<h4>Promoção válida apenas pra quem compartilhar em modo publico no seu Facebook</h4>	
 
             <div style="width: 100%; max-width: 140px; margin: auto auto 20px auto;">
                 <a href="{{ route('transmission.user')}}" class="btn btn-info">Confirmar</a>
