@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="img-pormocao-home">
-            <a href="{{ route('bet.user')}}"><img src="{{url('img/home.jpg')}}"</a>
+            <a href="{{ route('match.user')}}"><img src="{{url('img/home.jpg')}}"</a>
         </div>
     </div>
     <!--

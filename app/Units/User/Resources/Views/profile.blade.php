@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <form class="form-inline" style="width: 100%; max-width: 270px; margin: auto;">
                         @if (\Auth::user()->loginff)
-                            @if (\Auth::user()->balance > 20.00)
+                            @if (\Auth::user()->balance >= 20.00)
                                 <a href="{{route('transfer.request')}}" class="btn btn-success">Solicitar Transferência</a>
                             @endif
                         @else
