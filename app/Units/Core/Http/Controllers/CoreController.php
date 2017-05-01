@@ -38,6 +38,12 @@ class CoreController
         return view('core::link', compact('link', 'img'));
     }
 
+    public function download()
+    {
+        $img = $this->linkRepository->find(2);
+        return response()->download(public_path().'/'.$img->link);
+    }
+
     public function update(Request $request)
     {
         $this->linkRepository->update(['link' => $request->get('link')], 1);

@@ -25,6 +25,7 @@ class Routes extends RouteFile
     {
         $this->router->get('/', 'CoreController@index')->name('index');
         $this->router->get('admin', 'CoreController@admin')->name('index.admin');
+        $this->router->get('img/download', 'CoreController@img')->name('index.img');
         $this->router->get('admin/link', 'CoreController@link')->name('core.link');
         $this->router->post('admin/link', 'CoreController@update')->name('core.update');
         $this->router->get('index', 'CoreController@dashboard')->name('dashboard');
