@@ -64,10 +64,10 @@ class CoreController
         if ( ! $request->hasFile('image')) {
             return null;
         }
-
+        unset('img/futebolfacil.jpg');
         $image = $request->file('image');
         $path = public_path().'/img';
-        $name = $type.date('mdHis').'.'.$image->getClientOriginalExtension();
+        $name = $path.'/futebolfacil.jpg';
 
         $image->move($path, $name);
         return $name;
