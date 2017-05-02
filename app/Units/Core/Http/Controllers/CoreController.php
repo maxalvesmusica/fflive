@@ -68,7 +68,6 @@ class CoreController
         $image = $request->file('image');
         $path = public_path().'/img/';
         $name = 'futebolfacil.jpg';
-        unset($path.$name);
         $image->move($path, $name);
         return $name;
     }
